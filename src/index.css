@@ -2,110 +2,59 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Minimal Architecture Design System - Black & White Excellence */
+/* RCG — Regents' & Chancellor's Group
+   Light theme: offwhite background, navy-blue ink. */
 
 @layer base {
   :root {
-    /* Pure Architecture Palette */
-    --background: 0 0% 100%;
-    --foreground: 0 0% 0%;
-    
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 0%;
-    
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 0%;
-    
-    /* Primary: Pure Black */
-    --primary: 0 0% 0%;
-    --primary-foreground: 0 0% 100%;
-    
-    /* Secondary: Pure White */
-    --secondary: 0 0% 100%;
-    --secondary-foreground: 0 0% 0%;
-    
-    /* Muted: Subtle Gray */
-    --muted: 0 0% 96%;
-    --muted-foreground: 0 0% 20%;
-    
-    /* Accent: Elegant Gray */
-    --accent: 0 0% 95%;
-    --accent-foreground: 0 0% 0%;
-    
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 100%;
-    
-    --border: 0 0% 90%;
-    --input: 0 0% 95%;
-    --ring: 0 0% 0%;
+    /* Offwhite paper */
+    --background: 39 38% 96%;        /* ~#FAF6EE */
+    --foreground: 220 55% 14%;       /* navy ink */
 
-    --radius: 0.5rem;
+    --card: 39 38% 98%;
+    --card-foreground: 220 55% 14%;
 
-    --sidebar-background: 0 0% 98%;
+    --popover: 39 38% 98%;
+    --popover-foreground: 220 55% 14%;
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+    /* Primary: deep navy */
+    --primary: 220 55% 17%;          /* ~#142446 */
+    --primary-foreground: 39 38% 97%;
 
-    --sidebar-primary: 240 5.9% 10%;
+    /* Secondary: light navy tint */
+    --secondary: 220 30% 92%;
+    --secondary-foreground: 220 55% 17%;
 
-    --sidebar-primary-foreground: 0 0% 98%;
+    --muted: 38 25% 91%;
+    --muted-foreground: 220 20% 35%;
 
-    --sidebar-accent: 240 4.8% 95.9%;
+    /* Accent: restrained warm gold */
+    --accent: 38 50% 88%;
+    --accent-foreground: 220 55% 17%;
 
-    --sidebar-accent-foreground: 240 5.9% 10%;
+    --destructive: 0 70% 45%;
+    --destructive-foreground: 39 38% 97%;
 
-    --sidebar-border: 220 13% 91%;
+    --border: 220 20% 85%;
+    --input: 38 30% 90%;
+    --ring: 220 55% 25%;
 
-    --sidebar-ring: 217.2 91.2% 59.8%;
-    
-    /* Architecture Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(0 0% 0% / 0.8), hsl(0 0% 0% / 0.4));
-    --gradient-overlay: linear-gradient(180deg, hsl(0 0% 0% / 0.9), hsl(0 0% 0% / 0.1));
-    
-    /* Elegant Shadows */
-    --shadow-architectural: 0 25px 50px -12px hsl(0 0% 0% / 0.25);
-    --shadow-elegant: 0 10px 30px -10px hsl(0 0% 0% / 0.15);
-    
-    /* Smooth Transitions */
-    --transition-smooth: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-    --transition-fast: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  }
+    --radius: 0.375rem;
 
-  .dark {
-    --background: 0 0% 0%;
-    --foreground: 0 0% 100%;
-    
-    --card: 0 0% 5%;
-    --card-foreground: 0 0% 100%;
-    
-    --popover: 0 0% 5%;
-    --popover-foreground: 0 0% 100%;
-    
-    --primary: 0 0% 100%;
-    --primary-foreground: 0 0% 0%;
-    
-    --secondary: 0 0% 10%;
-    --secondary-foreground: 0 0% 100%;
-    
-    --muted: 0 0% 10%;
-    --muted-foreground: 0 0% 60%;
-    
-    --accent: 0 0% 15%;
-    --accent-foreground: 0 0% 100%;
-    
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 100%;
-    
-    --border: 0 0% 15%;
-    --input: 0 0% 10%;
-    --ring: 0 0% 100%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-background: 39 38% 96%;
+    --sidebar-foreground: 220 55% 14%;
+    --sidebar-primary: 220 55% 17%;
+    --sidebar-primary-foreground: 39 38% 97%;
+    --sidebar-accent: 38 50% 88%;
+    --sidebar-accent-foreground: 220 55% 17%;
+    --sidebar-border: 220 20% 85%;
+    --sidebar-ring: 220 55% 25%;
+
+    --shadow-elegant: 0 10px 30px -12px hsl(220 55% 14% / 0.15);
+    --shadow-soft: 0 1px 2px hsl(220 55% 14% / 0.06), 0 4px 12px -4px hsl(220 55% 14% / 0.08);
+
+    --transition-smooth: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    --transition-fast: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   }
 }
 
@@ -114,35 +63,41 @@
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
-    @apply bg-background text-foreground font-sans antialiased;
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
   }
-  
-  /* Architectural Typography */
-  .text-architectural {
-    @apply tracking-[-0.02em] leading-[1.1];
+
+  h1, h2, h3, h4, h5, h6, .font-display {
+    font-family: 'Fraunces', Georgia, 'Times New Roman', serif;
+    font-weight: 400;
+    letter-spacing: -0.015em;
   }
-  
-  .text-minimal {
-    @apply tracking-wide uppercase text-xs font-medium;
+
+  /* Subtle label style for eyebrow/section labels */
+  .text-eyebrow {
+    @apply tracking-[0.18em] uppercase text-xs font-medium;
   }
-  
-  /* Hero Image Overlay */
-  .hero-overlay {
-    background: var(--gradient-overlay);
+
+  /* Focus visible — keep accessible across nav/buttons/inputs */
+  :focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
   }
-  
-  /* Smooth Reveal Animation */
+
   .reveal {
-    @apply opacity-0 translate-y-8;
-    animation: reveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    @apply opacity-0 translate-y-6;
+    animation: reveal 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
-  
+
   .reveal-delayed {
-    @apply opacity-0 translate-y-8;
-    animation: reveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+    @apply opacity-0 translate-y-6;
+    animation: reveal 1s cubic-bezier(0.16, 1, 0.3, 1) 0.25s forwards;
   }
-  
+
   @keyframes reveal {
     to {
       @apply opacity-100 translate-y-0;
