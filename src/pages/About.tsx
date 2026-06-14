@@ -1,71 +1,93 @@
-import Navigation from "@/components/Navigation";
+import { Link } from "react-router-dom";
+import PageLayout from "@/components/PageLayout";
+import { Button } from "@/components/ui/button";
+import { copy } from "@/data/copy";
 
 const About = () => {
   return (
-    <div className="min-h-screen">
-      <Navigation />
-      <section className="pt-32 pb-32 bg-background">
+    <PageLayout>
+      <section className="py-20 md:py-28">
         <div className="container mx-auto px-6">
-          <div className="max-w-7xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-20 items-center">
+          <div className="max-w-4xl">
+            <p className="text-eyebrow text-muted-foreground">{copy.about.eyebrow}</p>
+            <h1 className="font-display text-4xl md:text-6xl text-foreground mt-4 leading-[1.1]">
+              {copy.about.title}
+            </h1>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-12 mt-16 max-w-6xl">
+            <div className="md:col-span-2 space-y-6">
+              {copy.about.paragraphs.map((p, i) => (
+                <p key={i} className="text-lg text-muted-foreground leading-relaxed">
+                  {p}
+                </p>
+              ))}
+            </div>
+
+            <aside className="space-y-8 border-l border-border pl-8">
               <div>
-                <h1 className="text-minimal text-muted-foreground mb-4">ABOUT</h1>
-                <h2 className="text-4xl md:text-6xl font-light text-architectural mb-12">
-                  Design Philosophy
-                </h2>
-                
-                <div className="space-y-8">
-                  <p className="text-lg text-muted-foreground leading-relaxed">
-                    We believe architecture should enhance human experience while respecting 
-                    the natural environment. Our practice focuses on creating spaces that 
-                    are both functional and poetic.
-                  </p>
-                  
-                  <p className="text-lg text-muted-foreground leading-relaxed">
-                    Founded in 2015, our studio has completed over 200 projects across 
-                    residential, commercial, and cultural sectors. Each project begins 
-                    with careful listening and ends with thoughtful execution.
-                  </p>
-                </div>
+                <h3 className="text-eyebrow text-muted-foreground mb-2">Based at</h3>
+                <p className="text-foreground">UC Berkeley</p>
               </div>
-              
-              <div className="space-y-12">
-                <div>
-                  <h3 className="text-minimal text-muted-foreground mb-6">APPROACH</h3>
-                  <div className="space-y-6">
-                    <div className="border-l-2 border-architectural pl-6">
-                      <h4 className="text-lg font-medium mb-2">Research</h4>
-                      <p className="text-muted-foreground">Deep understanding of context, culture, and climate</p>
-                    </div>
-                    <div className="border-l-2 border-architectural pl-6">
-                      <h4 className="text-lg font-medium mb-2">Collaboration</h4>
-                      <p className="text-muted-foreground">Close partnership with clients, engineers, and craftspeople</p>
-                    </div>
-                    <div className="border-l-2 border-architectural pl-6">
-                      <h4 className="text-lg font-medium mb-2">Innovation</h4>
-                      <p className="text-muted-foreground">Sustainable materials and forward-thinking design solutions</p>
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="pt-8 border-t border-border">
-                  <div className="grid grid-cols-2 gap-8">
-                    <div>
-                      <h3 className="text-minimal text-muted-foreground mb-2">FOUNDED</h3>
-                      <p className="text-xl">2015</p>
-                    </div>
-                    <div>
-                      <h3 className="text-minimal text-muted-foreground mb-2">PROJECTS</h3>
-                      <p className="text-xl">200+</p>
-                    </div>
-                  </div>
-                </div>
+              <div>
+                <h3 className="text-eyebrow text-muted-foreground mb-2">Composed of</h3>
+                <p className="text-foreground">
+                  Regents' & Chancellor's Scholars — Berkeley's top undergraduate award recipients.
+                </p>
+              </div>
+              <div>
+                <h3 className="text-eyebrow text-muted-foreground mb-2">Focus</h3>
+                <p className="text-foreground">
+                  Strategy, growth, operations, and research for partner organizations.
+                </p>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      {/* Interested? pathway */}
+      <section className="py-20 md:py-28 bg-card border-t border-border">
+        <div className="container mx-auto px-6">
+          <div className="max-w-3xl">
+            <p className="text-eyebrow text-muted-foreground">Interested?</p>
+            <h2 className="font-display text-3xl md:text-5xl text-foreground mt-4">
+              Pick the path that fits you.
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6 mt-12">
+            <div className="bg-background border border-border rounded-md p-8 shadow-soft">
+              <h3 className="font-display text-2xl text-foreground">
+                For organizations
+              </h3>
+              <p className="text-muted-foreground mt-3 leading-relaxed">
+                Share what you're working on and we'll be in touch within a few days.
+              </p>
+              <Button asChild className="mt-6 min-h-11">
+                <Link to="/contact">Submit an inquiry</Link>
+              </Button>
+            </div>
+            <div className="bg-background border border-border rounded-md p-8 shadow-soft">
+              <h3 className="font-display text-2xl text-foreground">
+                For Berkeley students
+              </h3>
+              <p className="text-muted-foreground mt-3 leading-relaxed">
+                Meet a current member or apply directly during open recruitment.
+              </p>
+              <div className="mt-6 flex flex-wrap gap-3">
+                <Button asChild variant="outline" className="min-h-11">
+                  <Link to="/team">Coffee chats</Link>
+                </Button>
+                <Button asChild className="min-h-11">
+                  <Link to="/apply">Apply</Link>
+                </Button>
               </div>
             </div>
           </div>
         </div>
       </section>
-    </div>
+    </PageLayout>
   );
 };
 

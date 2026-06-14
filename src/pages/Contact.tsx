@@ -1,76 +1,47 @@
-import Navigation from "@/components/Navigation";
+import PageLayout from "@/components/PageLayout";
+import ContactForm from "@/components/ContactForm";
+import { siteConfig } from "@/config/site";
+import { Mail } from "lucide-react";
 
 const Contact = () => {
   return (
-    <div className="min-h-screen">
-      <Navigation />
-      <section className="pt-32 pb-32 bg-background">
+    <PageLayout>
+      <section className="py-20 md:py-28">
         <div className="container mx-auto px-6">
-          <div className="max-w-7xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-20">
-              <div>
-                <h1 className="text-minimal text-muted-foreground mb-4">GET IN TOUCH</h1>
-                <h2 className="text-4xl md:text-6xl font-light text-architectural mb-12">
-                  Let's Create Something
-                  <br />
-                  Extraordinary
+          <div className="grid md:grid-cols-5 gap-16 max-w-6xl">
+            <div className="md:col-span-2">
+              <p className="text-eyebrow text-muted-foreground">Work with RCG</p>
+              <h1 className="font-display text-4xl md:text-5xl text-foreground mt-4 leading-[1.1]">
+                Tell us about your project.
+              </h1>
+              <p className="text-muted-foreground mt-6 leading-relaxed">
+                Share a few details and we'll respond within a few days to set up an
+                introductory conversation.
+              </p>
+
+              <div className="mt-10 pt-8 border-t border-border">
+                <h2 className="text-eyebrow text-muted-foreground mb-3">
+                  Prefer email?
                 </h2>
-                
-                <div className="space-y-8">
-                  <div>
-                    <h3 className="text-minimal text-muted-foreground mb-2">EMAIL</h3>
-                    <a href="mailto:hello@archstudio.com" className="text-xl hover:text-muted-foreground transition-colors duration-300">
-                      hello@archstudio.com
-                    </a>
-                  </div>
-                  
-                  <div>
-                    <h3 className="text-minimal text-muted-foreground mb-2">PHONE</h3>
-                    <a href="tel:+1234567890" className="text-xl hover:text-muted-foreground transition-colors duration-300">
-                      +1 (234) 567-8900
-                    </a>
-                  </div>
-                  
-                  <div>
-                    <h3 className="text-minimal text-muted-foreground mb-2">STUDIO</h3>
-                    <address className="text-xl not-italic">
-                      123 Design Avenue
-                      <br />
-                      New York, NY 10001
-                    </address>
-                  </div>
-                </div>
+                <a
+                  href={`mailto:${siteConfig.contactEmail}`}
+                  className="inline-flex items-center gap-2 text-foreground hover:text-primary"
+                >
+                  <Mail className="h-4 w-4" aria-hidden="true" />
+                  {siteConfig.contactEmail}
+                </a>
               </div>
-              
-              <div className="space-y-8">
-                <div>
-                  <h3 className="text-minimal text-muted-foreground mb-6">FOLLOW US</h3>
-                  <div className="space-y-4">
-                    <a href="#" className="block text-xl hover:text-muted-foreground transition-colors duration-300">
-                      Instagram
-                    </a>
-                    <a href="#" className="block text-xl hover:text-muted-foreground transition-colors duration-300">
-                      LinkedIn
-                    </a>
-                    <a href="#" className="block text-xl hover:text-muted-foreground transition-colors duration-300">
-                      Behance
-                    </a>
-                  </div>
-                </div>
-                
-                <div className="pt-12 border-t border-border">
-                  <p className="text-muted-foreground">
-                    We approach each project with curiosity, rigor, and a commitment to excellence. 
-                    Our process begins with listening, understanding your vision, and translating 
-                    it into spaces that exceed expectations.
-                  </p>
-                </div>
+            </div>
+
+            <div className="md:col-span-3">
+              <div className="bg-card border border-border rounded-md p-8 md:p-10 shadow-soft">
+                <ContactForm />
               </div>
             </div>
           </div>
         </div>
       </section>
-    </div>
+    </PageLayout>
   );
 };
 
