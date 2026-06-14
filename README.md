@@ -1,73 +1,52 @@
-# Welcome to your Lovable project
+# RCG — Regents' & Chancellor's Group
 
-## Project info
+The website for the Regents' & Chancellor's Group, a student consulting partners group at UC Berkeley.
 
-**URL**: https://lovable.dev/projects/09a14ae7-bd4a-415b-b22e-66bbeb1a9240
+## Stack
 
-## How can I edit this code?
+Vite + React + TypeScript + Tailwind + shadcn/ui. Client-side only.
 
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/09a14ae7-bd4a-415b-b22e-66bbeb1a9240) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+## Local development
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+bun install
+bun run dev
 ```
 
-**Edit a file directly in GitHub**
+## Where to edit content (no code changes required)
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+All editable content lives under `src/config/` and `src/data/`:
 
-**Use GitHub Codespaces**
+| File | What it controls |
+|---|---|
+| `src/config/site.ts` | Contact email recipient, Apply form URL, brand strings, social links |
+| `src/data/members.ts` | Coffee-chat roster (name, role, year, major, bio, photo, scheduling link) |
+| `src/data/partners.ts` | Past partner / client logos |
+| `src/data/timeline.ts` | Recruitment and interview process steps & dates |
+| `src/data/copy.ts` | Long-form page copy (hero, about, services, etc.) |
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### Adding images
 
-## What technologies are used for this project?
+Drop files into the matching folder, then import them at the top of the data file:
 
-This project is built with:
+```ts
+// src/data/members.ts
+import alexPhoto from "@/assets/members/alex.jpg";
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+export const members = [
+  { id: "alex", name: "Alex", photo: alexPhoto, /* ... */ },
+];
+```
 
-## How can I deploy this project?
+- Member photos → `src/assets/members/` (any 4:5 image works; missing photos fall back to initials).
+- Partner logos → `src/assets/partners/` (rendered in original brand colors).
+- RCG logo → `src/assets/logo/` (wire it into `src/components/Navigation.tsx` when ready).
 
-Simply open [Lovable](https://lovable.dev/projects/09a14ae7-bd4a-415b-b22e-66bbeb1a9240) and click on Share -> Publish.
+## Known gaps vs. the build brief
 
-## Can I connect a custom domain to my Lovable project?
+The current build is **frontend only**, by request. The following items from BUILD_OFF.md are deferred and will need a backend to fully satisfy:
 
-Yes, you can!
+- **§4.4 Contact form** — currently submits via `mailto:` to `siteConfig.contactEmail`. There is no internal API route, no server-side validation, and no database persistence. To add: a backend endpoint (e.g. Lovable Cloud edge function or external service) called from `src/components/ContactForm.tsx`.
+- **§4.7 Analytics** — silent pageview recording is not implemented (also requires a backend endpoint).
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Everything else from the brief (theme, 5 functional areas, accessibility, responsive layouts, maintainable data layer, deep-link routing) is in place.
