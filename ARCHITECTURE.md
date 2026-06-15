@@ -152,7 +152,7 @@ src/
 
 ## 9. Adding a Backend Later
 
-If a backend is introduced (e.g. Lovable Cloud / Supabase), the typical integration points would be:
+If a backend is introduced (e.g Supabase), the typical integration points would be:
 
 1. **Contact form** — Replace `mailto:` with a POST to an API route or edge function that sends email via a provider.
 2. **Member / partner data** — Move from static TS modules to database tables; fetch at build time or runtime.

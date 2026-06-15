@@ -9,8 +9,8 @@ Vite + React + TypeScript + Tailwind + shadcn/ui. Client-side only.
 ## Local development
 
 ```sh
-bun install
-bun run dev
+npm install
+npm run dev
 ```
 
 ## Where to edit content (no code changes required)
