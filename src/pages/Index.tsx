@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
-import PartnerStrip from "@/components/PartnerStrip";
+import PartnerMarquee from "@/components/PartnerMarquee";
 import { copy } from "@/data/copy";
 import { siteConfig } from "@/config/site";
 
@@ -38,7 +38,7 @@ const Index = () => {
         </div>
       </section>
 
-      <PartnerStrip />
+      <PartnerMarquee />
 
       {/* What we do */}
       <section className="py-24 md:py-32">
