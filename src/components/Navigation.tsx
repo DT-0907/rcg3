@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
+import Logo from "@/components/Logo";
 import { siteConfig } from "@/config/site";
 
 const links = [
@@ -24,8 +25,8 @@ const Navigation = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/85 backdrop-blur-md border-b border-border">
       <div className="container mx-auto px-6 py-4 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-2" aria-label={`${siteConfig.name} home`}>
-          <span className="font-display text-xl text-foreground">{siteConfig.name}</span>
+        <Link to="/" className="flex items-center gap-3" aria-label={`${siteConfig.name} home`}>
+          <Logo size="sm" />
           <span className="hidden sm:inline text-eyebrow text-muted-foreground">
             {siteConfig.fullName}
           </span>
@@ -52,6 +53,10 @@ const Navigation = () => {
           </SheetTrigger>
           <SheetContent side="right" className="bg-background">
             <SheetTitle className="sr-only">Navigation</SheetTitle>
+            <div className="flex items-center gap-3 pb-6 border-b border-border">
+              <Logo size="md" />
+              <span className="font-display text-lg text-foreground">{siteConfig.name}</span>
+            </div>
             <div className="flex flex-col gap-6 pt-8">
               {links.map((l) => (
                 <NavLink

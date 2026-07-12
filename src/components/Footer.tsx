@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Logo from "@/components/Logo";
 import { siteConfig } from "@/config/site";
 
 const Footer = () => {
@@ -7,10 +8,15 @@ const Footer = () => {
       <div className="container mx-auto px-6 py-12">
         <div className="grid gap-10 md:grid-cols-4">
           <div className="md:col-span-2">
-            <div className="font-display text-2xl text-foreground">{siteConfig.name}</div>
-            <p className="text-eyebrow text-muted-foreground mt-1">
-              {siteConfig.fullName}
-            </p>
+            <div className="flex items-center gap-3">
+              <Logo size="md" />
+              <div>
+                <div className="font-display text-2xl text-foreground">{siteConfig.name}</div>
+                <p className="text-eyebrow text-muted-foreground mt-1">
+                  {siteConfig.fullName}
+                </p>
+              </div>
+            </div>
             <p className="text-sm text-muted-foreground mt-4 max-w-sm">
               {siteConfig.tagline}
             </p>
