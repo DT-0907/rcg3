@@ -65,16 +65,16 @@ export const copy = {
       "Our projects begin with a real decision on a partner's desk. Over six to ten weeks, a small student team gathers evidence, speaks with the people closest to the problem, and turns what it learns into a practical recommendation.",
     pillars: [
       {
-        title: "Strategy & Research",
-        body: "We size markets, map competitors, and talk with customers and experts to build a grounded view of an unfamiliar space.",
+        title: "Stability",
+        body: "Thirty percent of partnership funds support RCSA, reinvesting project work into the scholars and community behind it.",
       },
       {
-        title: "Growth & Go-to-Market",
-        body: "We help teams sharpen their positioning, understand who they serve, and choose the channels and pricing worth testing.",
+        title: "Vision",
+        body: "We strengthen the Regents' Organization's presence and give current and prospective scholars more ways to see its value.",
       },
       {
-        title: "Operations & Analytics",
-        body: "We examine workflows and data, find where time or information is being lost, and recommend changes a team can actually maintain.",
+        title: "Direction",
+        body: "We connect Berkeley talent with corporate projects that build experience and produce practical results for partner teams.",
       },
     ],
   },
@@ -102,9 +102,9 @@ export const copy = {
     eyebrow: "About RCG",
     title: "A place to do serious work with people who stay curious.",
     paragraphs: [
-      "RCG is the corporate projects arm of UC Berkeley's Regents' and Chancellor's Scholars community. It gives scholars from very different fields a way to learn from one another while working on questions that matter outside the classroom.",
-      "A project team might include an engineer, an economist, and a cognitive science student. That range is useful: members notice different things, challenge one another's assumptions, and approach a partner's problem from more than one angle.",
-      "The project work is only part of the experience. Members share skills, offer candid feedback, and make time for one another. Thirty percent of partnership funds support the Regents' and Chancellor's Scholarship Association; the rest supports scholar programming and professional development.",
+      "RCG draws applicants from Berkeley's Regents' and Chancellor's Scholars community and selects members through behavioral, technical, and case interviews. The process is designed to find people who can think carefully, work well with others, and take ownership of demanding projects.",
+      "Project teams deliberately combine technical minds from engineering, EECS, computer science, data science, mathematics, and statistics with strategists from Haas, economics, political science, policy, legal studies, and related fields.",
+      "That mix lets teams handle engineering and data while keeping the business decision in view. Members gain practical experience, partners receive cross-functional work, and thirty percent of partnership funds return to RCSA.",
     ],
     aside: {
       basedAtLabel: "Based at",

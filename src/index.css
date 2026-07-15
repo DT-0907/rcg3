@@ -127,13 +127,14 @@
     position: absolute;
     inset: 0;
     content: '';
-    background: url('/berkeley-placeholder.jpg') center / cover no-repeat;
+    background: url('/hero-about-rcsa.jpg') center / cover no-repeat;
     filter: saturate(.62) contrast(.95) brightness(.72);
     -webkit-mask-image: linear-gradient(to bottom, black 0%, black 55%, transparent 92%);
     mask-image: linear-gradient(to bottom, black 0%, black 55%, transparent 92%);
   }
 
-  .about-image-hero::after {
+  .about-image-hero::after,
+  .client-image-hero::after {
     position: absolute;
     inset: 0;
     content: '';
@@ -207,7 +208,7 @@
     position: absolute;
     inset: 0;
     content: '';
-    background: url('/berkeley-placeholder.jpg') center / cover no-repeat;
+    background: url('/hero-apply-chalkboard.jpg') center / cover no-repeat;
     filter: saturate(.55) contrast(.96) brightness(.68);
     -webkit-mask-image: linear-gradient(to bottom, black 0%, black 55%, transparent 92%);
     mask-image: linear-gradient(to bottom, black 0%, black 55%, transparent 92%);
@@ -217,10 +218,20 @@
     position: absolute;
     inset: 0;
     content: '';
-    background: linear-gradient(to right, hsl(var(--primary) / .98) 0%, hsl(var(--primary) / .9) 34%, hsl(var(--primary) / .38) 68%, transparent 100%);
+    background: linear-gradient(to right, hsl(var(--brown) / .98) 0%, hsl(var(--brown) / .9) 34%, hsl(var(--brown) / .38) 68%, transparent 100%);
     -webkit-mask-image: linear-gradient(to bottom, black 0%, black 62%, transparent 100%);
     mask-image: linear-gradient(to bottom, black 0%, black 62%, transparent 100%);
     pointer-events: none;
+  }
+
+  .client-image-hero::before {
+    position: absolute;
+    inset: 0;
+    content: '';
+    background: url('/hero-clients-collaboration.jpg') center / cover no-repeat;
+    filter: saturate(.58) contrast(.96) brightness(.66);
+    -webkit-mask-image: linear-gradient(to bottom, black 0%, black 55%, transparent 92%);
+    mask-image: linear-gradient(to bottom, black 0%, black 55%, transparent 92%);
   }
 
   .cream-paper {

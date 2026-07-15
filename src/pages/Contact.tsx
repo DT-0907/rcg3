@@ -6,14 +6,14 @@ import { siteConfig } from "@/config/site";
 
 const engagementSteps = [
   { number: "01", title: "Introductory call", timing: "Week 0", body: "We learn what decision is in front of your team, what context already exists, and what a useful outcome would look like." },
-  { number: "02", title: "Scope & staffing", timing: "Week 1", body: "RCG defines the project question, deliverables, and cadence, then assembles four to six scholars with the right mix of backgrounds." },
+  { number: "02", title: "Scope & staffing", timing: "Week 1", body: "RCG defines the question and deliverables, then staffs four to six scholars across technical disciplines and business, policy, or strategy." },
   { number: "03", title: "Research & build", timing: "Weeks 2–6", body: "The team conducts research, analysis, interviews, or technical work while staying in regular contact with your organization." },
   { number: "04", title: "Midpoint review", timing: "Mid-semester", body: "We test early findings with your team, resolve open questions, and adjust the work before final recommendations are developed." },
   { number: "05", title: "Final delivery", timing: "Semester end", body: "Your team receives an executive presentation, final deck, and the supporting work needed to carry the recommendation forward." },
 ];
 
 const teamPrinciples = [
-  { icon: Users, title: "Cross-functional by design", body: "Each project combines technical and strategic perspectives rather than drawing from a single major or discipline." },
+  { icon: Users, title: "Cross-functional by design", body: "Teams pair engineering, EECS, computer science, data science, mathematics, or statistics with perspectives from Haas, economics, political science, policy, and legal studies." },
   { icon: CalendarDays, title: "A consistent working rhythm", body: "Project managers coordinate the team and maintain a clear partner cadence from kickoff through final delivery." },
   { icon: FileText, title: "Work your team can use", body: "Deliverables are built for handoff—not just presentation—with evidence, models, and next steps included where relevant." },
 ];
@@ -35,23 +35,36 @@ const Contact = () => {
 
   return (
     <PageLayout>
-      <div className="apply-canvas text-[hsl(var(--cream))]">
-        <section className="apply-image-hero relative flex min-h-[78svh] items-center overflow-hidden px-6 py-20">
+      <div className="home-canvas text-[hsl(var(--cream))]">
+        <section className="client-image-hero relative flex min-h-[78svh] items-center overflow-hidden px-6 py-20">
           <div className="container relative z-10 mx-auto">
             <div className="max-w-3xl">
               <p className="text-eyebrow text-[hsl(var(--gold))]">For Clients</p>
               <h1 className="mt-5 font-display text-5xl leading-[1.04] md:text-7xl">Bring us the question your team needs answered.</h1>
               <p className="mt-7 max-w-2xl text-xl leading-relaxed text-[hsl(var(--cream)/0.74)]">RCG partners with organizations on semester-long projects spanning software, analytics, operations, business development, and product design.</p>
-              <a href="#inquiry" className="mt-9 inline-flex min-h-12 items-center rounded-md bg-[hsl(var(--brown))] px-8 text-sm font-semibold text-[hsl(var(--cream))] transition-colors hover:bg-[hsl(var(--brown)/0.88)]">Start a conversation</a>
+              <a href="#inquiry" className="mt-9 inline-flex min-h-12 items-center rounded-md bg-primary px-8 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90">Start a conversation</a>
             </div>
           </div>
         </section>
 
         <section className="px-6 py-20 md:py-28">
           <div data-scroll-reveal className="prestige-blue-panel mx-auto max-w-6xl rounded-2xl">
-            <div className="prestige-blue-surface rounded-2xl bg-[hsl(var(--brown))] px-8 py-14 md:px-14 md:py-16">
+            <div className="prestige-blue-surface rounded-2xl bg-primary px-8 py-14 md:px-14 md:py-16">
               <p className="text-eyebrow text-[hsl(var(--gold))]">Engagement timeline</p>
               <h2 className="mt-4 max-w-3xl font-display text-4xl md:text-6xl">From first conversation to final handoff.</h2>
+              <div className="mt-10 grid grid-cols-2 gap-8 md:grid-cols-4">
+                {[
+                  ["1 semester", "Typical engagement"],
+                  ["4–6", "Scholars per team"],
+                  ["Weekly", "Partner cadence"],
+                  ["3 milestones", "Kickoff, midpoint, final"],
+                ].map(([value, label]) => (
+                  <div key={label}>
+                    <p className="font-display text-3xl text-[hsl(var(--gold))] md:text-4xl">{value}</p>
+                    <p className="mt-2 text-sm text-[hsl(var(--cream)/0.5)]">{label}</p>
+                  </div>
+                ))}
+              </div>
               <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-5">
                 {engagementSteps.map((step) => (
                   <article key={step.number} className="rounded-lg bg-[hsl(var(--cream)/0.055)] p-6">
@@ -78,7 +91,7 @@ const Contact = () => {
               {teamPrinciples.map((principle, index) => {
                 const Icon = principle.icon;
                 return (
-                  <article key={principle.title} data-scroll-reveal style={{ transitionDelay: `${index * 100}ms` }} className="rounded-xl bg-[hsl(var(--brown))] p-8 shadow-[0_20px_50px_hsl(220_30%_4%/0.35)]">
+                  <article key={principle.title} data-scroll-reveal style={{ transitionDelay: `${index * 100}ms` }} className="rounded-xl bg-primary p-8 shadow-[0_20px_50px_hsl(220_30%_4%/0.35)]">
                     <Icon className="h-7 w-7 text-[hsl(var(--gold))]" strokeWidth={1.5} aria-hidden="true" />
                     <h3 className="mt-6 font-display text-3xl">{principle.title}</h3>
                     <p className="mt-5 leading-relaxed text-[hsl(var(--cream)/0.6)]">{principle.body}</p>
@@ -97,7 +110,7 @@ const Contact = () => {
               <p className="text-eyebrow text-[hsl(var(--gold))]">Get in touch</p>
               <h2 className="mt-4 font-display text-4xl leading-tight md:text-6xl">Tell us what is on your team’s desk.</h2>
               <p className="mt-6 text-lg leading-relaxed text-[hsl(var(--cream)/0.64)]">A short description is enough to begin. We will follow up to understand the context, timing, and whether the work is a strong fit for an RCG project.</p>
-              <div className="mt-10 rounded-xl bg-[hsl(var(--brown))] p-7">
+              <div className="mt-10 rounded-xl bg-primary p-7">
                 <p className="text-xs font-semibold uppercase tracking-[0.15em] text-[hsl(var(--gold))]">Prefer email?</p>
                 <a href={`mailto:${siteConfig.contactEmail}`} className="mt-4 inline-flex items-center gap-3 text-lg hover:text-[hsl(var(--gold))]"><Mail className="h-5 w-5" />{siteConfig.contactEmail}</a>
                 <p className="mt-5 text-sm leading-relaxed text-[hsl(var(--cream)/0.5)]">We typically respond within a few days to arrange an introductory call.</p>

@@ -102,7 +102,8 @@ const About = () => {
           <div data-scroll-reveal className="prestige-blue-panel mx-auto max-w-6xl rounded-2xl">
             <div className="prestige-blue-surface rounded-2xl bg-primary px-8 py-14 md:px-14 md:py-16">
               <p className="text-eyebrow text-[hsl(var(--gold))]">By the numbers</p>
-              <h2 className="mt-4 max-w-2xl font-display text-3xl md:text-4xl">A rare scholarship. A remarkably broad community.</h2>
+              <h2 className="mt-4 max-w-2xl font-display text-3xl md:text-4xl">A rare scholarship. A deliberately cross-functional team.</h2>
+              <p className="mt-5 max-w-3xl text-[hsl(var(--cream)/0.62)]">Members advance through behavioral, technical, and case evaluations before joining teams that pair engineering and data talent with business and policy perspectives.</p>
               <div className="mt-12 grid grid-cols-2 gap-x-12 gap-y-14 md:grid-cols-4 md:gap-x-10 lg:gap-x-16">
                 {scholarStats.map((stat) => (
                   <div key={stat.value} className="text-center">

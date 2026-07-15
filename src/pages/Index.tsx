@@ -7,6 +7,12 @@ import { Button } from "@/components/ui/button";
 import { copy } from "@/data/copy";
 import Logo from "@/components/Logo";
 
+const pillarImages = [
+  { src: "/pillar-stability.jpg", alt: "Historic South Hall at UC Berkeley" },
+  { src: "/pillar-vision.jpg", alt: "The new Grimes Engineering Center at UC Berkeley" },
+  { src: "/pillar-direction.png", alt: "Sather Gate at UC Berkeley" },
+];
+
 const Index = () => {
   const [heroLogoVisible, setHeroLogoVisible] = useState(true);
 
@@ -85,10 +91,13 @@ const Index = () => {
             <div data-scroll-reveal className="max-w-xl md:w-[48%]">
               <p className="text-eyebrow text-[hsl(var(--gold))]">Our Mission</p>
               <h2 className="mt-5 font-display text-4xl leading-tight md:text-6xl">
-                Put exceptional Berkeley scholars to work on questions that matter.
+                Strengthen the Regents' community through meaningful work.
               </h2>
               <p className="mt-7 text-lg leading-relaxed text-[hsl(var(--cream)/0.72)]">
-                RCG builds cross-functional student teams around real corporate projects, giving partners thoughtful work and scholars a place to turn academic strength into practical experience.
+                RCG builds stronger relationships between the scholarship and outside organizations, giving scholars practical experience while making the Regents' community more valuable to current and prospective members.
+              </p>
+              <p className="mt-5 text-lg leading-relaxed text-[hsl(var(--cream)/0.72)]">
+                Thirty percent of partnership funds go directly to the Regents' and Chancellor's Scholarship Association to support its members and broader mission.
               </p>
               <Button asChild size="lg" className="mt-9 min-h-12 bg-primary text-primary-foreground hover:bg-primary/90">
                 <Link to="/about">Learn More <ArrowRight aria-hidden="true" /></Link>
@@ -122,10 +131,9 @@ const Index = () => {
               {copy.whatWeDo.pillars.map((pillar, index) => (
               <article key={pillar.title} data-scroll-reveal style={{ transitionDelay: `${index * 120}ms` }} className="cream-paper flex min-h-[44rem] w-full max-w-[15rem] flex-col overflow-hidden rounded-sm text-[hsl(var(--brown))] shadow-[0_22px_55px_hsl(220_12%_3%/0.45)]">
                 <img
-                  src="/berkeley-placeholder.jpg"
-                  alt="UC Berkeley campus placeholder"
+                  src={pillarImages[index].src}
+                  alt={pillarImages[index].alt}
                   className="h-[40%] min-h-64 w-full object-cover"
-                  style={{ objectPosition: `${35 + index * 22}% center` }}
                 />
                 <div className="flex flex-1 flex-col p-7">
                   <p className="text-xs font-semibold tracking-[0.22em] text-[hsl(var(--gold))]">0{index + 1}</p>
@@ -153,13 +161,8 @@ const Index = () => {
                 <p className="mt-1 text-xs font-semibold uppercase tracking-[0.2em] text-[hsl(var(--gold))]">Fall 2026 President</p>
               </div>
             </div>
-            <div className="relative min-h-[28rem] bg-primary-foreground/10 md:min-h-full">
-              <div className="absolute inset-0 grid place-items-center text-primary-foreground/20">
-                <div className="text-center">
-                  <div className="mx-auto h-32 w-32 rounded-full bg-current/20" />
-                  <p className="mt-5 text-xs font-semibold uppercase tracking-[0.2em]">President portrait</p>
-                </div>
-              </div>
+            <div className="relative min-h-[28rem] overflow-hidden md:min-h-full">
+              <img src="/mark-lin.jpeg" alt="Mark Lin, Fall 2026 President" className="absolute inset-0 h-full w-full object-cover object-center" />
             </div>
           </div>
           </div>

@@ -30,14 +30,14 @@ const Apply = () => {
 
   return (
     <PageLayout>
-      <div className="apply-canvas text-[hsl(var(--cream))]">
+      <div className="home-canvas text-[hsl(var(--cream))]">
         <section className="apply-image-hero relative flex min-h-[82svh] items-center overflow-hidden px-6 py-20">
           <div className="container relative z-10 mx-auto">
             <div className="max-w-3xl">
               <p className="text-eyebrow text-[hsl(var(--gold))]">{copy.apply.eyebrow}</p>
               <h1 className="mt-5 font-display text-6xl leading-[1.02] md:text-8xl">{copy.apply.title}</h1>
               <p className="mt-7 max-w-2xl text-xl leading-relaxed text-[hsl(var(--cream)/0.76)]">{copy.apply.blurb}</p>
-              <Button asChild size="lg" className="mt-9 min-h-12 bg-[hsl(var(--brown))] text-[hsl(var(--cream))] hover:bg-[hsl(var(--brown)/0.88)]">
+              <Button asChild size="lg" className="mt-9 min-h-12 bg-primary text-primary-foreground hover:bg-primary/90">
                 <a href={siteConfig.applyFormUrl} target="_blank" rel="noopener noreferrer">
                   {copy.apply.applyCta}<ExternalLink aria-hidden="true" />
                 </a>
@@ -48,7 +48,7 @@ const Apply = () => {
 
         <section className="px-6 py-20 md:py-28">
           <div data-scroll-reveal className="prestige-blue-panel mx-auto max-w-6xl rounded-2xl">
-            <div className="prestige-blue-surface rounded-2xl bg-[hsl(var(--brown))] px-8 py-14 md:px-14 md:py-16">
+            <div className="prestige-blue-surface rounded-2xl bg-primary px-8 py-14 md:px-14 md:py-16">
               <p className="text-eyebrow text-[hsl(var(--gold))]">{copy.apply.recruitmentProcess.eyebrow}</p>
               <h2 className="mt-4 max-w-4xl font-display text-4xl md:text-6xl">{copy.apply.recruitmentProcess.title}</h2>
               <p className="mt-5 max-w-2xl text-[hsl(var(--cream)/0.62)]">{copy.apply.recruitmentProcess.blurb}</p>
@@ -80,7 +80,7 @@ const Apply = () => {
             </div>
             <div className="mt-12 grid gap-7 md:grid-cols-3">
               {interviewProcess.map((step, index) => (
-                <article key={step.label} data-scroll-reveal style={{ transitionDelay: `${index * 100}ms` }} className="rounded-xl bg-[hsl(var(--brown))] p-8 shadow-[0_20px_50px_hsl(220_30%_4%/0.35)]">
+                <article key={step.label} data-scroll-reveal style={{ transitionDelay: `${index * 100}ms` }} className="rounded-xl bg-primary p-8 shadow-[0_20px_50px_hsl(220_30%_4%/0.35)]">
                   <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[hsl(var(--gold))]">{step.date}</p>
                   <h3 className="mt-4 font-display text-3xl">{step.label}</h3>
                   <p className="mt-5 leading-relaxed text-[hsl(var(--cream)/0.62)]">{step.description}</p>
@@ -90,7 +90,7 @@ const Apply = () => {
             <div data-scroll-reveal className="mx-auto mt-14 max-w-3xl text-center">
               <h3 className="font-display text-3xl">{copy.apply.readyToApply.title}</h3>
               <p className="mt-4 text-[hsl(var(--cream)/0.62)]">Applications open at the beginning of each semester.</p>
-              <Button asChild size="lg" className="mt-7 min-h-12 bg-[hsl(var(--brown))] text-[hsl(var(--cream))] hover:bg-[hsl(var(--brown)/0.88)]">
+              <Button asChild size="lg" className="mt-7 min-h-12 bg-primary text-primary-foreground hover:bg-primary/90">
                 <a href={siteConfig.applyFormUrl} target="_blank" rel="noopener noreferrer">{copy.apply.readyToApply.cta}<ExternalLink aria-hidden="true" /></a>
               </Button>
             </div>
@@ -108,7 +108,7 @@ const Apply = () => {
             </div>
             <div className="mt-14 grid gap-7 sm:grid-cols-2 lg:grid-cols-3">
               {coffeeMembers.map((member, index) => (
-                <article key={member.id} data-scroll-reveal style={{ transitionDelay: `${(index % 3) * 90}ms` }} className="flex overflow-hidden rounded-xl bg-[hsl(var(--brown))] shadow-[0_18px_45px_hsl(220_30%_4%/0.35)]">
+                <article key={member.id} data-scroll-reveal style={{ transitionDelay: `${(index % 3) * 90}ms` }} className="flex overflow-hidden rounded-xl bg-primary shadow-[0_18px_45px_hsl(220_30%_4%/0.35)]">
                   <div className="grid w-28 shrink-0 place-items-center bg-[hsl(var(--cream)/0.06)] text-[hsl(var(--cream)/0.18)]">
                     <Logo size="lg" className="h-16" />
                   </div>
