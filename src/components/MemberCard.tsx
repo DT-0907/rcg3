@@ -1,4 +1,4 @@
-import { Member } from "@/data/members";
+import { Member, copy } from "@/data/copy";
 import { Button } from "@/components/ui/button";
 import { Calendar } from "lucide-react";
 
@@ -56,10 +56,10 @@ const MemberCard = ({ member }: { member: Member }) => {
               href={member.schedulingUrl}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label={`Schedule a coffee chat with ${member.name}`}
+              aria-label={`${copy.team.scheduleChatAriaLabelPrefix} ${member.name}`}
             >
               <Calendar className="h-4 w-4" />
-              <span>Schedule a chat</span>
+              <span>{copy.team.scheduleChatCta}</span>
             </a>
           </Button>
         </div>

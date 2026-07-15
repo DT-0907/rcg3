@@ -1,12 +1,9 @@
-import { useRef } from "react";
 import { cn } from "@/lib/utils";
-import { LOAD_SVG_ASPECT_CLASS } from "@/lib/loadSvg";
-import { useLoadSvg } from "@/hooks/useLoadSvg";
 
 const sizeClasses = {
-  sm: "h-8",
-  md: "h-10",
-  lg: "h-14",
+  sm: "h-11",
+  md: "h-14",
+  lg: "h-20",
 } as const;
 
 interface LogoProps {
@@ -15,19 +12,15 @@ interface LogoProps {
 }
 
 const Logo = ({ size = "sm", className }: LogoProps) => {
-  const hostRef = useRef<HTMLDivElement>(null);
-  useLoadSvg(hostRef);
-
   return (
     <div
-      ref={hostRef}
       className={cn(
-        LOAD_SVG_ASPECT_CLASS,
-        "shrink-0 text-foreground",
+        "rcg-logo aspect-[600/582] shrink-0 bg-current text-foreground",
         sizeClasses[size],
         className,
       )}
-      aria-hidden="true"
+      role="img"
+      aria-label="Regents' and Chancellor's Group crest"
     />
   );
 };

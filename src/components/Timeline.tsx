@@ -1,4 +1,4 @@
-import { TimelineStep } from "@/data/timeline";
+import { TimelineStep, copy } from "@/data/copy";
 import { Lock } from "lucide-react";
 
 const Timeline = ({ steps }: { steps: readonly TimelineStep[] }) => {
@@ -18,7 +18,7 @@ const Timeline = ({ steps }: { steps: readonly TimelineStep[] }) => {
             {step.inviteOnly && (
               <span className="inline-flex items-center gap-1 text-xs px-2 py-0.5 rounded-full bg-accent text-accent-foreground">
                 <Lock className="h-3 w-3" aria-hidden="true" />
-                Invite only
+                {copy.timeline.inviteOnlyBadge}
               </span>
             )}
           </div>

@@ -1,6 +1,6 @@
-export const LOAD_SVG_PATH = "/load.svg";
-export const LOAD_SVG_VIEWBOX = "0 0 1474 1429";
-export const LOAD_SVG_ASPECT_CLASS = "aspect-[1474/1429]";
+export const LOAD_SVG_PATH = "/rcg-logo.svg";
+export const LOAD_SVG_VIEWBOX = "0 0 600 582";
+export const LOAD_SVG_ASPECT_CLASS = "aspect-[600/582]";
 
 let cachedMarkup: string | null = null;
 let pendingFetch: Promise<string> | null = null;
@@ -75,11 +75,15 @@ export function animateLoadSvgTrace(
   durationMs: number,
   signal?: AbortSignal,
 ): Promise<void> {
+  // Keep the freshly mounted SVG hidden until every path has its initial
+  // dash offset. This prevents a one-frame flash of the completed crest.
+  svg.style.visibility = "hidden";
   const entries = Array.from(svg.querySelectorAll("path"))
     .map((path) => {
       const length = path.getTotalLength();
       if (length <= 0) return null;
 
+      path.style.fill = "none";
       path.style.strokeDasharray = `${length}`;
       path.style.strokeDashoffset = `${length}`;
       return { path, length };
@@ -89,7 +93,12 @@ export function animateLoadSvgTrace(
         entry !== null,
     );
 
-  if (entries.length === 0) return Promise.resolve();
+  if (entries.length === 0) {
+    svg.style.visibility = "visible";
+    return Promise.resolve();
+  }
+
+  svg.style.visibility = "visible";
 
   return new Promise((resolve, reject) => {
     let rafId = 0;

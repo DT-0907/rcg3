@@ -8,22 +8,25 @@
 @layer base {
   :root {
     /* Offwhite paper */
-    --background: 39 38% 96%;        /* ~#FAF6EE */
+    --background: 40 42% 91%;
     --foreground: 220 55% 14%;       /* navy ink */
+    --cream: 40 42% 91%;
+    --brown: 220 9% 10%;
+    --gold: 42 31% 49%;
 
-    --card: 39 38% 98%;
+    --card: 40 40% 94%;
     --card-foreground: 220 55% 14%;
 
     --popover: 39 38% 98%;
     --popover-foreground: 220 55% 14%;
 
     /* Primary: deep navy */
-    --primary: 220 55% 17%;          /* ~#142446 */
-    --primary-foreground: 39 38% 97%;
+    --primary: 218 31% 21%;
+    --primary-foreground: 40 42% 91%;
 
     /* Secondary: light navy tint */
-    --secondary: 220 30% 92%;
-    --secondary-foreground: 220 55% 17%;
+    --secondary: 218 18% 86%;
+    --secondary-foreground: 218 31% 21%;
 
     --muted: 38 25% 91%;
     --muted-foreground: 220 20% 35%;
@@ -72,6 +75,206 @@
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
   }
 
+  .rcg-logo {
+    -webkit-mask: url('/rcg-logo.svg') center / contain no-repeat;
+    mask: url('/rcg-logo.svg') center / contain no-repeat;
+  }
+
+  .navy-texture {
+    color: hsl(var(--primary-foreground));
+    background-color: hsl(218 31% 21%);
+    background-image:
+      radial-gradient(circle at 12% 18%, hsl(214 30% 32% / .34), transparent 34%),
+      radial-gradient(circle at 82% 76%, hsl(225 28% 24% / .42), transparent 38%),
+      repeating-linear-gradient(118deg, hsl(0 0% 100% / .018) 0 1px, transparent 1px 7px),
+      linear-gradient(145deg, hsl(217 31% 23%), hsl(222 32% 15%));
+  }
+
+  .navy-texture ::selection {
+    background: hsl(38 60% 70% / .4);
+  }
+
+  .hero-brown-image {
+    background: transparent;
+  }
+
+  .hero-brown-image::before {
+    position: absolute;
+    inset: 0;
+    content: '';
+    background: url('/hero-brown-waves.jpeg') center / cover no-repeat;
+    filter: grayscale(1) saturate(0) brightness(.68) contrast(1.06);
+    -webkit-mask-image: linear-gradient(to bottom, black 0%, black 28%, transparent 86%);
+    mask-image: linear-gradient(to bottom, black 0%, black 28%, transparent 86%);
+  }
+
+  .hero-brown-image::after {
+    position: absolute;
+    inset: 0;
+    content: '';
+    background: linear-gradient(
+      to bottom,
+      hsl(var(--brown) / .08) 0%,
+      hsl(var(--brown) / .2) 28%,
+      hsl(var(--brown) / .52) 52%,
+      hsl(var(--brown) / .38) 70%,
+      transparent 100%
+    );
+    pointer-events: none;
+  }
+
+  .about-image-hero::before {
+    position: absolute;
+    inset: 0;
+    content: '';
+    background: url('/berkeley-placeholder.jpg') center / cover no-repeat;
+    filter: saturate(.62) contrast(.95) brightness(.72);
+    -webkit-mask-image: linear-gradient(to bottom, black 0%, black 55%, transparent 92%);
+    mask-image: linear-gradient(to bottom, black 0%, black 55%, transparent 92%);
+  }
+
+  .about-image-hero::after {
+    position: absolute;
+    inset: 0;
+    content: '';
+    background: linear-gradient(to right, hsl(var(--brown) / .98) 0%, hsl(var(--brown) / .9) 34%, hsl(var(--brown) / .38) 66%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 0%, black 62%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 0%, black 62%, transparent 100%);
+    pointer-events: none;
+  }
+
+  .major-slice {
+    opacity: 0;
+    transform: rotate(-18deg) scale(.04);
+    transform-box: view-box;
+    transform-origin: 200px 200px;
+    transition:
+      transform .9s cubic-bezier(.22, 1, .36, 1),
+      opacity .5s ease-out;
+  }
+
+  .major-chart.is-visible .major-slice {
+    opacity: 1;
+    transform: rotate(0) scale(1);
+  }
+
+  .major-slice:hover,
+  .major-slice:focus-visible {
+    filter: brightness(1.16);
+    outline: none;
+  }
+
+  .major-label {
+    margin-inline: -.5rem;
+    padding: .3rem .5rem;
+    border-radius: .25rem;
+    color: hsl(var(--cream) / .6);
+    transition:
+      color .25s ease,
+      background-color .25s ease,
+      transform .25s ease;
+  }
+
+  .major-label.is-active {
+    color: hsl(var(--cream));
+    background: hsl(var(--gold) / .1);
+    transform: translateX(.35rem);
+  }
+
+  .home-canvas {
+    background-color: hsl(var(--brown));
+    background-image:
+      radial-gradient(ellipse at 14% 8%, hsl(218 11% 23% / .3), transparent 38%),
+      radial-gradient(ellipse at 86% 72%, hsl(220 10% 3% / .42), transparent 43%),
+      repeating-linear-gradient(112deg, hsl(40 25% 84% / .012) 0 1px, transparent 1px 8px),
+      linear-gradient(145deg, hsl(220 9% 13%), hsl(220 10% 7%));
+    background-repeat: no-repeat, no-repeat, repeat, no-repeat;
+    background-size: 100% 100%, 100% 100%, auto, 100% 100%;
+  }
+
+  .apply-canvas {
+    background-color: hsl(var(--primary));
+    background-image:
+      radial-gradient(ellipse at 12% 10%, hsl(210 22% 34% / .32), transparent 38%),
+      radial-gradient(ellipse at 88% 72%, hsl(225 24% 12% / .4), transparent 45%),
+      repeating-linear-gradient(112deg, hsl(40 25% 84% / .012) 0 1px, transparent 1px 8px),
+      linear-gradient(145deg, hsl(217 31% 23%), hsl(222 32% 15%));
+    background-repeat: no-repeat, no-repeat, repeat, no-repeat;
+    background-size: 100% 100%, 100% 100%, auto, 100% 100%;
+  }
+
+  .apply-image-hero::before {
+    position: absolute;
+    inset: 0;
+    content: '';
+    background: url('/berkeley-placeholder.jpg') center / cover no-repeat;
+    filter: saturate(.55) contrast(.96) brightness(.68);
+    -webkit-mask-image: linear-gradient(to bottom, black 0%, black 55%, transparent 92%);
+    mask-image: linear-gradient(to bottom, black 0%, black 55%, transparent 92%);
+  }
+
+  .apply-image-hero::after {
+    position: absolute;
+    inset: 0;
+    content: '';
+    background: linear-gradient(to right, hsl(var(--primary) / .98) 0%, hsl(var(--primary) / .9) 34%, hsl(var(--primary) / .38) 68%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 0%, black 62%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 0%, black 62%, transparent 100%);
+    pointer-events: none;
+  }
+
+  .cream-paper {
+    background-color: hsl(var(--cream));
+    background-image:
+      radial-gradient(circle at 18% 22%, hsl(42 55% 97% / .52), transparent 34%),
+      radial-gradient(circle at 82% 76%, hsl(34 28% 76% / .2), transparent 38%),
+      repeating-linear-gradient(96deg, hsl(25 20% 35% / .012) 0 1px, transparent 1px 5px);
+  }
+
+  .prestige-blue-panel {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .prestige-blue-panel::before,
+  .prestige-blue-panel::after {
+    position: absolute;
+    z-index: 5;
+    top: -2.25rem;
+    right: 1.75rem;
+    bottom: -2.25rem;
+    left: 1.75rem;
+    border-radius: .85rem;
+    content: '';
+    pointer-events: none;
+  }
+
+  .prestige-blue-panel::after {
+    border: 1px solid hsl(var(--gold) / .9);
+  }
+
+  .prestige-blue-panel::before {
+    z-index: 6;
+    border: 3px solid hsl(var(--gold) / .92);
+    -webkit-mask-image:
+      radial-gradient(ellipse 32rem 18rem at top right, black 0%, black 50%, transparent 78%),
+      radial-gradient(ellipse 32rem 18rem at bottom left, black 0%, black 50%, transparent 78%);
+    -webkit-mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-size: auto;
+    mask-image:
+      radial-gradient(ellipse 32rem 18rem at top right, black 0%, black 50%, transparent 78%),
+      radial-gradient(ellipse 32rem 18rem at bottom left, black 0%, black 50%, transparent 78%);
+    mask-position: center;
+    mask-repeat: no-repeat;
+    mask-size: auto;
+  }
+
+  .prestige-blue-surface {
+    position: relative;
+    z-index: 1;
+  }
+
   h1, h2, h3, h4, h5, h6, .font-display {
     font-family: 'Fraunces', Georgia, 'Times New Roman', serif;
     font-weight: 400;
@@ -96,6 +299,99 @@
   .reveal-delayed {
     @apply opacity-0 translate-y-6;
     animation: reveal 1s cubic-bezier(0.16, 1, 0.3, 1) 0.25s forwards;
+  }
+
+  .fade-in-delayed {
+    opacity: 0;
+    animation: fade-in 1.2s ease-out 0.3s forwards;
+  }
+
+  .hero-logo-entry {
+    opacity: 0;
+    animation: hero-fade 1s ease-out .15s forwards;
+  }
+
+  .hero-bold-logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    filter: url('#hero-logo-bold');
+    transform: translate(-50%, -50%) scaleX(1.02) scaleY(1.015);
+    transform-origin: center;
+  }
+
+  .hero-logo-medallion {
+    position: relative;
+    width: 6.3rem;
+    aspect-ratio: 1;
+    border: 3px solid hsl(var(--gold) / .92);
+    border-radius: 9999px;
+    box-shadow:
+      0 0 0 1px hsl(var(--brown) / .3),
+      inset 0 0 24px hsl(var(--gold) / .06);
+  }
+
+  @media (min-width: 768px) {
+    .hero-logo-medallion { width: 8.35rem; }
+  }
+
+  .hero-written-word {
+    opacity: 0;
+    clip-path: inset(-12% 100% -20% 0);
+    animation: hero-write 1.05s cubic-bezier(.22, 1, .36, 1) forwards;
+  }
+
+  .hero-welcome-entry {
+    opacity: 0;
+    animation: hero-fade 1s ease-out 2.75s forwards;
+  }
+
+  [data-scroll-reveal] {
+    opacity: 0;
+    transform: translateY(2.25rem);
+    transition:
+      opacity .9s cubic-bezier(.22, 1, .36, 1),
+      transform .9s cubic-bezier(.22, 1, .36, 1);
+  }
+
+  [data-scroll-reveal].is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @keyframes hero-write {
+    0% {
+      opacity: 1;
+      clip-path: inset(-12% 100% -20% 0);
+    }
+    100% {
+      opacity: 1;
+      clip-path: inset(-12% 0 -20% 0);
+    }
+  }
+
+  @keyframes hero-fade {
+    to { opacity: 1; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-logo-entry,
+    .hero-written-word,
+    .hero-welcome-entry {
+      opacity: 1;
+      clip-path: none;
+      animation: none;
+    }
+
+    [data-scroll-reveal] {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+
+  @keyframes fade-in {
+    to { opacity: 1; }
   }
 
   @keyframes reveal {

@@ -1,7 +1,6 @@
 import PageLayout from "@/components/PageLayout";
 import MemberCard from "@/components/MemberCard";
-import { members } from "@/data/members";
-import { copy } from "@/data/copy";
+import { members, copy } from "@/data/copy";
 
 const Team = () => {
   return (

@@ -5,14 +5,17 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { siteConfig } from "@/config/site";
+import { copy } from "@/data/copy";
 import { CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
 
+const { labels, errors: errorText, emailBody } = copy.contactForm;
+
 const schema = z.object({
-  firstName: z.string().trim().min(1, "First name is required").max(80),
-  lastName: z.string().trim().min(1, "Last name is required").max(80),
-  email: z.string().trim().email("Enter a valid email address").max(255),
-  organization: z.string().trim().min(1, "Organization is required").max(160),
-  message: z.string().trim().min(10, "Please share a few details (10+ characters)").max(2000),
+  firstName: z.string().trim().min(1, errorText.firstName).max(80),
+  lastName: z.string().trim().min(1, errorText.lastName).max(80),
+  email: z.string().trim().email(errorText.email).max(255),
+  organization: z.string().trim().min(1, errorText.organization).max(160),
+  message: z.string().trim().min(10, errorText.message).max(2000),
 });
 
 type FormValues = z.infer<typeof schema>;
@@ -51,7 +54,7 @@ const ContactForm = () => {
       }
       setErrors(fieldErrors);
       setStatus("error");
-      setErrorMessage("Please correct the highlighted fields.");
+      setErrorMessage(errorText.formInvalid);
       return;
     }
 
@@ -62,11 +65,11 @@ const ContactForm = () => {
       // No backend in this build — open the user's mail client with a
       // prefilled message to the configured RCG recipient.
       const v = parsed.data;
-      const subject = `RCG inquiry from ${v.organization}`;
+      const subject = `${copy.contactForm.subjectPrefix} ${v.organization}`;
       const body =
-        `Name: ${v.firstName} ${v.lastName}\n` +
-        `Email: ${v.email}\n` +
-        `Organization: ${v.organization}\n\n` +
+        `${emailBody.namePrefix} ${v.firstName} ${v.lastName}\n` +
+        `${emailBody.emailPrefix} ${v.email}\n` +
+        `${emailBody.organizationPrefix} ${v.organization}\n\n` +
         `${v.message}\n`;
       const url = `mailto:${encodeURIComponent(siteConfig.contactEmail)}?subject=${encodeURIComponent(
         subject
@@ -79,9 +82,7 @@ const ContactForm = () => {
     } catch (err) {
       setStatus("error");
       setErrorMessage(
-        "We couldn't open your mail client. Please email us directly at " +
-          siteConfig.contactEmail +
-          "."
+        `${errorText.mailClientFailedPrefix} ${siteConfig.contactEmail}.`
       );
     }
   };
@@ -92,7 +93,7 @@ const ContactForm = () => {
     <form onSubmit={handleSubmit} noValidate className="space-y-6">
       <div className="grid sm:grid-cols-2 gap-6">
         <div className="space-y-2">
-          <Label htmlFor="firstName">First name</Label>
+          <Label htmlFor="firstName">{labels.firstName}</Label>
           <Input
             id="firstName"
             name="firstName"
@@ -112,7 +113,7 @@ const ContactForm = () => {
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="lastName">Last name</Label>
+          <Label htmlFor="lastName">{labels.lastName}</Label>
           <Input
             id="lastName"
             name="lastName"
@@ -133,7 +134,7 @@ const ContactForm = () => {
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="email">Email</Label>
+        <Label htmlFor="email">{labels.email}</Label>
         <Input
           id="email"
           name="email"
@@ -154,7 +155,7 @@ const ContactForm = () => {
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="organization">Company / organization</Label>
+        <Label htmlFor="organization">{labels.organization}</Label>
         <Input
           id="organization"
           name="organization"
@@ -174,7 +175,7 @@ const ContactForm = () => {
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="message">How can we help?</Label>
+        <Label htmlFor="message">{labels.message}</Label>
         <Textarea
           id="message"
           name="message"
@@ -197,7 +198,7 @@ const ContactForm = () => {
         {status === "success" && (
           <p className="flex items-center gap-2 text-sm text-foreground">
             <CheckCircle2 className="h-4 w-4" aria-hidden="true" />
-            Thanks — your message is ready in your mail app. We'll respond within a few days.
+            {copy.contactForm.successMessage}
           </p>
         )}
         {status === "error" && errorMessage && (
@@ -212,10 +213,10 @@ const ContactForm = () => {
         {status === "submitting" ? (
           <>
             <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />
-            <span>Sending…</span>
+            <span>{copy.contactForm.submittingLabel}</span>
           </>
         ) : (
-          <span>Send inquiry</span>
+          <span>{copy.contactForm.submitLabel}</span>
         )}
       </Button>
     </form>
