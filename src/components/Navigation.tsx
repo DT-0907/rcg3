@@ -7,8 +7,10 @@ import Logo from "@/components/Logo";
 import { siteConfig } from "@/config/site";
 import { copy } from "@/data/copy";
 
-const leftLinks = copy.nav.links.slice(0, 2);
-const rightLinks = copy.nav.links.slice(2);
+const leftLinks = copy.nav.links.slice(0, 3);
+const rightLinks = copy.nav.links.slice(3);
+
+const externalLinkClass = "text-sm font-medium uppercase tracking-[0.08em] text-[hsl(var(--brown)/0.58)] transition-colors duration-300 hover:text-[hsl(var(--brown))]";
 
 const linkClass = ({ isActive }: { isActive: boolean }) =>
   `text-sm font-medium uppercase tracking-[0.08em] transition-colors duration-300 ${
@@ -35,7 +37,11 @@ const Navigation = () => {
       <div className="container relative mx-auto flex h-[5.25rem] items-center justify-between px-6">
         <div className="hidden flex-1 items-center justify-end gap-10 pr-20 md:flex">
           {leftLinks.map((link) => (
-            <NavLink key={link.to} to={link.to} className={linkClass}>{link.label}</NavLink>
+            "external" in link && link.external ? (
+              <a key={link.to} href={link.to} target="_blank" rel="noopener noreferrer" className={externalLinkClass}>{link.label}</a>
+            ) : (
+              <NavLink key={link.to} to={link.to} className={linkClass}>{link.label}</NavLink>
+            )
           ))}
         </div>
 
@@ -45,7 +51,11 @@ const Navigation = () => {
 
         <div className="hidden flex-1 items-center gap-10 pl-20 md:flex">
           {rightLinks.map((link) => (
-            <NavLink key={link.to} to={link.to} className={linkClass}>{link.label}</NavLink>
+            "external" in link && link.external ? (
+              <a key={link.to} href={link.to} target="_blank" rel="noopener noreferrer" className={externalLinkClass}>{link.label}</a>
+            ) : (
+              <NavLink key={link.to} to={link.to} className={linkClass}>{link.label}</NavLink>
+            )
           ))}
         </div>
 
@@ -69,18 +79,22 @@ const Navigation = () => {
             </div>
             <div className="flex flex-col gap-6 pt-8">
               {copy.nav.links.map((l) => (
-                <NavLink
-                  key={l.to}
-                  to={l.to}
-                  onClick={() => setOpen(false)}
-                  className={({ isActive }) =>
-                    `text-2xl font-display uppercase ${
-                      isActive ? "text-foreground" : "text-muted-foreground"
-                    }`
-                  }
-                >
-                  {l.label}
-                </NavLink>
+                "external" in l && l.external ? (
+                  <a key={l.to} href={l.to} target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)} className="text-2xl font-display uppercase text-muted-foreground hover:text-foreground">{l.label}</a>
+                ) : (
+                  <NavLink
+                    key={l.to}
+                    to={l.to}
+                    onClick={() => setOpen(false)}
+                    className={({ isActive }) =>
+                      `text-2xl font-display uppercase ${
+                        isActive ? "text-foreground" : "text-muted-foreground"
+                      }`
+                    }
+                  >
+                    {l.label}
+                  </NavLink>
+                )
               ))}
             </div>
           </SheetContent>

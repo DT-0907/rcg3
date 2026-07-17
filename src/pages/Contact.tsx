@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { CalendarDays, FileText, Mail, Users } from "lucide-react";
+import { BarChart3, Code2, Compass, Mail, PanelsTopLeft, Search, Workflow } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import ContactForm from "@/components/ContactForm";
 import { siteConfig } from "@/config/site";
@@ -12,10 +12,13 @@ const engagementSteps = [
   { number: "05", title: "Final delivery", timing: "Semester end", body: "Your team receives an executive presentation, final deck, and the supporting work needed to carry the recommendation forward." },
 ];
 
-const teamPrinciples = [
-  { icon: Users, title: "Cross-functional by design", body: "Teams pair engineering, EECS, computer science, data science, mathematics, or statistics with perspectives from Haas, economics, political science, policy, and legal studies." },
-  { icon: CalendarDays, title: "A consistent working rhythm", body: "Project managers coordinate the team and maintain a clear partner cadence from kickoff through final delivery." },
-  { icon: FileText, title: "Work your team can use", body: "Deliverables are built for handoff—not just presentation—with evidence, models, and next steps included where relevant." },
+const capabilities = [
+  { icon: Search, type: "Business", title: "Market Research", body: "We size opportunities, study competitors, interview users, and turn market evidence into a clear view of where a partner can compete." },
+  { icon: BarChart3, type: "Technical", title: "Data Analytics", body: "We clean and analyze data, define useful metrics, and build models or visualizations that make decisions easier to defend." },
+  { icon: Code2, type: "Technical", title: "Software Engineering", body: "We scope and build focused tools, prototypes, automations, and data-driven applications around a concrete organizational need." },
+  { icon: Workflow, type: "Business", title: "Operations Strategy", body: "We map workflows, identify bottlenecks, and recommend practical changes to processes, ownership, and implementation." },
+  { icon: Compass, type: "Business", title: "Growth Strategy", body: "We connect research to positioning, partnerships, go-to-market choices, and a realistic plan for reaching the right audience." },
+  { icon: PanelsTopLeft, type: "Technical", title: "Product & UX", body: "We translate user needs into product requirements, journeys, interfaces, and testable prototypes that teams can carry forward." },
 ];
 
 const Contact = () => {
@@ -41,9 +44,38 @@ const Contact = () => {
             <div className="max-w-3xl">
               <p className="text-eyebrow text-[hsl(var(--gold))]">For Clients</p>
               <h1 className="mt-5 font-display text-5xl leading-[1.04] md:text-7xl">Bring us the question your team needs answered.</h1>
-              <p className="mt-7 max-w-2xl text-xl leading-relaxed text-[hsl(var(--cream)/0.74)]">RCG partners with organizations on semester-long projects spanning software, analytics, operations, business development, and product design.</p>
+              <p className="mt-7 max-w-2xl text-xl leading-relaxed text-[hsl(var(--cream)/0.74)]">Four to six Regents' and Chancellor's Scholars work across software, analytics, operations, business development, and product design, with defined reviews from kickoff through final delivery.</p>
               <a href="#inquiry" className="mt-9 inline-flex min-h-12 items-center rounded-md bg-primary px-8 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90">Start a conversation</a>
             </div>
+          </div>
+        </section>
+
+        <section className="px-6 py-16 md:py-24">
+          <div data-scroll-reveal className="mb-12 px-3 text-center">
+            <p className="text-eyebrow text-[hsl(var(--gold))]">Business &amp; technical capabilities</p>
+            <h2 className="mt-4 font-display text-4xl md:text-6xl">What We Deliver</h2>
+            <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-[hsl(var(--cream)/0.64)]">Each engagement combines the commercial question with the research, data, design, or engineering needed to answer it.</p>
+          </div>
+          <div className="cream-panel-field container mx-auto grid max-w-6xl gap-5 md:grid-cols-2 lg:grid-cols-3">
+            {capabilities.map((capability, index) => {
+              const Icon = capability.icon;
+              return (
+                <article key={capability.title} data-scroll-reveal style={{ transitionDelay: `${(index % 3) * 80}ms` }} className="cream-paper group relative flex min-h-[24rem] overflow-hidden p-8 text-[hsl(var(--brown))] shadow-[0_20px_55px_hsl(220_30%_4%/0.3)] md:p-9">
+                  <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full border border-[hsl(var(--gold)/0.22)] transition-transform duration-700 group-hover:scale-110" aria-hidden="true" />
+                  <div className="absolute -right-4 -top-4 h-24 w-24 rounded-full border border-[hsl(var(--gold)/0.35)]" aria-hidden="true" />
+                  <div className="relative flex w-full flex-col">
+                    <div className="flex items-center justify-between gap-5">
+                      <span className="grid h-12 w-12 place-items-center rounded-full bg-[hsl(var(--gold)/0.13)] text-[hsl(var(--gold))]"><Icon className="h-5 w-5" strokeWidth={1.6} aria-hidden="true" /></span>
+                      <span className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-[hsl(var(--brown)/0.42)]">{capability.type}</span>
+                    </div>
+                    <div className="mt-auto pt-10">
+                      <h3 className="font-display text-3xl italic leading-tight lg:text-[2.15rem]">{capability.title}</h3>
+                      <p className="mt-4 max-w-xl text-sm leading-relaxed text-[hsl(var(--brown)/0.68)] xl:text-base">{capability.body}</p>
+                    </div>
+                  </div>
+                </article>
+              );
+            })}
           </div>
         </section>
 
@@ -51,7 +83,7 @@ const Contact = () => {
           <div data-scroll-reveal className="prestige-blue-panel mx-auto max-w-6xl rounded-2xl">
             <div className="prestige-blue-surface rounded-2xl bg-primary px-8 py-14 md:px-14 md:py-16">
               <p className="text-eyebrow text-[hsl(var(--gold))]">Engagement timeline</p>
-              <h2 className="mt-4 max-w-3xl font-display text-4xl md:text-6xl">From first conversation to final handoff.</h2>
+              <h2 className="mt-4 max-w-4xl font-display text-4xl md:text-6xl">From first conversation to final handoff.</h2>
               <div className="mt-10 grid grid-cols-2 gap-8 md:grid-cols-4">
                 {[
                   ["1 semester", "Typical engagement"],
@@ -79,33 +111,8 @@ const Contact = () => {
           </div>
         </section>
 
-        <div className="container mx-auto max-w-6xl px-6" aria-hidden="true"><div className="border-t border-[hsl(var(--cream)/0.34)]" /></div>
-
-        <section className="px-6 py-20 md:py-28">
-          <div className="container mx-auto max-w-6xl">
-            <div data-scroll-reveal className="text-center">
-              <p className="text-eyebrow text-[hsl(var(--gold))]">How teams function</p>
-              <h2 className="mt-4 font-display text-4xl md:text-6xl">Small teams, clear ownership.</h2>
-            </div>
-            <div className="mt-14 grid gap-7 md:grid-cols-3">
-              {teamPrinciples.map((principle, index) => {
-                const Icon = principle.icon;
-                return (
-                  <article key={principle.title} data-scroll-reveal style={{ transitionDelay: `${index * 100}ms` }} className="rounded-xl bg-primary p-8 shadow-[0_20px_50px_hsl(220_30%_4%/0.35)]">
-                    <Icon className="h-7 w-7 text-[hsl(var(--gold))]" strokeWidth={1.5} aria-hidden="true" />
-                    <h3 className="mt-6 font-display text-3xl">{principle.title}</h3>
-                    <p className="mt-5 leading-relaxed text-[hsl(var(--cream)/0.6)]">{principle.body}</p>
-                  </article>
-                );
-              })}
-            </div>
-          </div>
-        </section>
-
-        <div className="container mx-auto max-w-6xl px-6" aria-hidden="true"><div className="border-t border-[hsl(var(--cream)/0.34)]" /></div>
-
         <section id="inquiry" className="scroll-mt-28 px-6 pb-28 pt-20 md:pb-36 md:pt-28">
-          <div className="container mx-auto grid max-w-6xl items-start gap-12 lg:grid-cols-[.72fr_1.28fr]">
+          <div className="cream-panel-field container mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[.72fr_1.28fr]">
             <div data-scroll-reveal>
               <p className="text-eyebrow text-[hsl(var(--gold))]">Get in touch</p>
               <h2 className="mt-4 font-display text-4xl leading-tight md:text-6xl">Tell us what is on your team’s desk.</h2>
@@ -117,7 +124,7 @@ const Contact = () => {
               </div>
             </div>
 
-            <div data-scroll-reveal className="cream-paper rounded-2xl p-8 text-[hsl(var(--brown))] shadow-[0_24px_65px_hsl(220_30%_4%/0.38)] md:p-12" style={{ transitionDelay: "120ms" }}>
+            <div data-scroll-reveal className="cream-paper p-8 text-[hsl(var(--brown))] shadow-[0_24px_65px_hsl(220_30%_4%/0.38)] md:p-12" style={{ transitionDelay: "120ms" }}>
               <h3 className="font-display text-3xl">Project inquiry</h3>
               <p className="mt-3 text-sm text-[hsl(var(--brown)/0.58)]">Share the essentials and your mail app will prepare a message to RCG.</p>
               <div className="mt-8"><ContactForm /></div>

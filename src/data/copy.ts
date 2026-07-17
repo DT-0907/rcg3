@@ -13,16 +13,16 @@
  *
  * Brand basics (site name, tagline, contact email, apply form URL, social
  * links) live in src/config/site.ts instead, since those are configuration
- * values reused for links/routing rather than prose.
+ * values reused for links/routing rather than prose
  */
 
 export const copy = {
   meta: {
-    title: "RCG — Regents' & Chancellor's Group at UC Berkeley",
+    title: "RCG | Regents' & Chancellor's Group",
     description:
       "RCG is the corporate projects arm of UC Berkeley's Regents' and Chancellor's Scholars community.",
     author: "Regents' and Chancellor's Group",
-    ogTitle: "RCG — Regents' & Chancellor's Group at UC Berkeley",
+    ogTitle: "RCG | Regents' & Chancellor's Group",
     ogDescription:
       "Cross-functional project teams drawn from UC Berkeley's Regents' and Chancellor's Scholars community.",
   },
@@ -31,8 +31,10 @@ export const copy = {
     links: [
       { to: "/", label: "Home" },
       { to: "/about", label: "About" },
+      { to: "/team", label: "Team" },
       { to: "/apply", label: "Apply" },
       { to: "/contact", label: "For Clients" },
+      { to: "https://rcsa.studentorg.berkeley.edu/", label: "RCSA", external: true },
     ],
     openMenuAriaLabel: "Open navigation menu",
     menuTitle: "Navigation",
@@ -66,11 +68,11 @@ export const copy = {
     pillars: [
       {
         title: "Stability",
-        body: "Thirty percent of partnership funds support RCSA, reinvesting project work into the scholars and community behind it.",
+        body: "Every engagement begins with a defined question, partner cadence, and final deliverable so teams know what they own from the start.",
       },
       {
         title: "Vision",
-        body: "We strengthen the Regents' Organization's presence and give current and prospective scholars more ways to see its value.",
+        body: "We give Berkeley scholars a place to apply academic depth to consequential work for companies, nonprofits, and community partners.",
       },
       {
         title: "Direction",
@@ -102,9 +104,9 @@ export const copy = {
     eyebrow: "About RCG",
     title: "A place to do serious work with people who stay curious.",
     paragraphs: [
-      "RCG draws applicants from Berkeley's Regents' and Chancellor's Scholars community and selects members through behavioral, technical, and case interviews. The process is designed to find people who can think carefully, work well with others, and take ownership of demanding projects.",
-      "Project teams deliberately combine technical minds from engineering, EECS, computer science, data science, mathematics, and statistics with strategists from Haas, economics, political science, policy, legal studies, and related fields.",
-      "That mix lets teams handle engineering and data while keeping the business decision in view. Members gain practical experience, partners receive cross-functional work, and thirty percent of partnership funds return to RCSA.",
+      "RCG is a project-based organization whose members are selected through behavioral, technical, and case interviews. The process looks for people who can reason carefully, communicate clearly, and take ownership of demanding work.",
+      "Our members study within a university community of more than 35,000 undergraduates, 100 majors, and 1,200 student organizations. Project teams deliberately combine technical minds from engineering, EECS, computer science, data science, mathematics, and statistics with strategists from Haas, economics, policy, and related fields.",
+      "That mix lets teams handle engineering and data while keeping the business decision in view. Members gain practical experience while partners receive focused, cross-functional work they can carry forward.",
     ],
     aside: {
       basedAtLabel: "Based at",
@@ -181,7 +183,7 @@ export const copy = {
     eyebrow: "Recruitment",
     title: "Join RCG.",
     blurb:
-      "We recruit new members at the start of each semester. The process is open to all UC Berkeley undergraduates regardless of major or year.",
+      "We recruit at the start of each semester from UC Berkeley's Regents' and Chancellor's Scholars community. Applicants advance through written, behavioral, technical, and case-based evaluation before joining a project team.",
     applyCta: "Apply Now",
     recruitmentProcess: {
       eyebrow: "Recruitment process",

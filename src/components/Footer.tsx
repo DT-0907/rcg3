@@ -4,10 +4,7 @@ import { siteConfig } from "@/config/site";
 import { copy } from "@/data/copy";
 
 const Footer = () => {
-  const footerLinks = [
-    ...copy.nav.links,
-    { to: "/services", label: "Services" },
-  ];
+  const footerLinks = copy.nav.links;
 
   return (
     <footer className="cream-paper text-[hsl(var(--brown))]">
@@ -29,9 +26,11 @@ const Footer = () => {
             <ul className="space-y-2 text-sm">
               {footerLinks.map((l) => (
                 <li key={l.to}>
-                  <Link to={l.to} className="text-[hsl(var(--brown)/0.65)] hover:text-[hsl(var(--brown))]">
-                    {l.label}
-                  </Link>
+                  {"external" in l && l.external ? (
+                    <a href={l.to} target="_blank" rel="noopener noreferrer" className="text-[hsl(var(--brown)/0.65)] hover:text-[hsl(var(--brown))]">{l.label}</a>
+                  ) : (
+                    <Link to={l.to} className="text-[hsl(var(--brown)/0.65)] hover:text-[hsl(var(--brown))]">{l.label}</Link>
+                  )}
                 </li>
               ))}
             </ul>

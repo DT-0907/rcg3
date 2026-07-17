@@ -4,9 +4,9 @@ import Logo from "@/components/Logo";
 import { copy, partners } from "@/data/copy";
 
 const scholarStats = [
-  { value: "0.1%", label: "Annual acceptance rate" },
-  { value: "~130K", label: "Global applicants each year" },
-  { value: "40/56%", label: "Men / women" },
+  { value: "0.1%", label: "Approximate scholarship acceptance rate" },
+  { value: "~130K", label: "Applicants considered annually" },
+  { value: "40/56%", label: "Men / women in the cohort" },
   { value: "28%", label: "First-generation scholars" },
 ];
 
@@ -27,9 +27,9 @@ const majors = [
 ];
 
 const chartColors = [
-  "#c3a765", "#40516a", "#596a7e", "#718093", "#2f4059",
-  "#8b7952", "#68788a", "#3a4c65", "#7f8c9a", "#a48c58",
-  "#52647a", "#8e9aa5", "#d1c7ad",
+  "#c3a765", "#3d3f42", "#55585c", "#6e7276", "#292b2e",
+  "#8b7952", "#65686c", "#34373a", "#7b7f83", "#a48c58",
+  "#4d5054", "#8a8e92", "#d1c7ad",
 ];
 
 const polarPoint = (cx: number, cy: number, radius: number, angle: number) => {
@@ -98,12 +98,31 @@ const About = () => {
         </section>
 
         <CreamRule />
+        <section className="overflow-hidden px-6 py-20 md:py-28">
+          <div className="cream-panel-field placements-panel-field mx-auto max-w-6xl">
+            <div data-scroll-reveal className="cream-paper overflow-hidden text-[hsl(var(--brown))] shadow-[0_24px_65px_hsl(220_12%_3%/0.42)]">
+              <img src="/hero-about-rcsa.jpg" alt="Regents' and Chancellor's Scholarship Association community" className="aspect-[16/7] w-full object-cover object-center" />
+            <div className="grid gap-8 px-8 py-12 md:grid-cols-[.7fr_1.3fr] md:items-start md:px-14 md:py-16">
+              <div>
+                <p className="text-eyebrow text-[hsl(var(--gold))]">Our scholar community</p>
+                <h2 className="mt-4 font-display text-4xl md:text-6xl">About RCSA</h2>
+              </div>
+              <div className="space-y-5 text-lg leading-relaxed text-[hsl(var(--brown)/0.7)]">
+                <p>The Regents' and Chancellor's Scholarship Association is the student community for Berkeley's Regents' and Chancellor's Scholars. RCSA supports scholar connection, programming, professional development, and the broader undergraduate experience.</p>
+                <p>RCG and RCSA are separate organizations. RCG recruits from the scholar community and focuses specifically on external project work. As part of that relationship, RCG contributes thirty percent of partnership funds to RCSA.</p>
+              </div>
+            </div>
+            </div>
+          </div>
+        </section>
+
+        <CreamRule />
         <section className="px-6 py-20 md:py-28">
           <div data-scroll-reveal className="prestige-blue-panel mx-auto max-w-6xl rounded-2xl">
             <div className="prestige-blue-surface rounded-2xl bg-primary px-8 py-14 md:px-14 md:py-16">
               <p className="text-eyebrow text-[hsl(var(--gold))]">By the numbers</p>
-              <h2 className="mt-4 max-w-2xl font-display text-3xl md:text-4xl">A rare scholarship. A deliberately cross-functional team.</h2>
-              <p className="mt-5 max-w-3xl text-[hsl(var(--cream)/0.62)]">Members advance through behavioral, technical, and case evaluations before joining teams that pair engineering and data talent with business and policy perspectives.</p>
+              <h2 className="mt-4 max-w-3xl font-display text-3xl md:text-4xl">The Scholarship Cohort</h2>
+              <p className="mt-5 max-w-3xl text-[hsl(var(--cream)/0.62)]">These figures describe Berkeley's Regents' and Chancellor's Scholarship cohort—the scholar community from which RCG recruits—not RCG membership or RCSA operations.</p>
               <div className="mt-12 grid grid-cols-2 gap-x-12 gap-y-14 md:grid-cols-4 md:gap-x-10 lg:gap-x-16">
                 {scholarStats.map((stat) => (
                   <div key={stat.value} className="text-center">
@@ -120,9 +139,9 @@ const About = () => {
         <section className="px-6 py-20 md:py-28">
           <div className="container mx-auto grid max-w-6xl items-center gap-14 lg:grid-cols-[.9fr_1.1fr]">
             <div data-scroll-reveal>
-              <p className="text-eyebrow text-[hsl(var(--gold))]">Academic breadth</p>
-              <h2 className="mt-4 font-display text-4xl md:text-6xl">Our scholars study across Berkeley.</h2>
-              <p className="mt-6 max-w-lg text-lg leading-relaxed text-[hsl(var(--cream)/0.68)]">No single discipline defines the Regents' and Chancellor's community. That range is what makes our project teams work.</p>
+              <p className="text-eyebrow text-[hsl(var(--gold))]">Scholarship cohort</p>
+              <h2 className="mt-4 font-display text-4xl md:text-6xl">Academic Breadth</h2>
+              <p className="mt-6 max-w-lg text-lg leading-relaxed text-[hsl(var(--cream)/0.68)]">The distribution below describes Regents' and Chancellor's Scholars across Berkeley's academic fields. RCG draws on that breadth when building cross-functional teams.</p>
               <div className="mt-9 grid grid-cols-2 gap-x-8 gap-y-3 text-sm">
                 {majors.map((major, index) => (
                   <div key={major.label} className={`major-label flex items-center justify-between gap-3 ${activeMajor === index ? "is-active" : ""}`}>
@@ -133,13 +152,13 @@ const About = () => {
               </div>
             </div>
             <div data-scroll-reveal className="major-chart mx-auto w-full max-w-[34rem]" style={{ transitionDelay: "120ms" }}>
-              <svg viewBox="0 0 400 400" role="img" aria-label="Student major distribution chart" className="h-auto w-full overflow-visible">
+              <svg viewBox="0 0 400 400" role="img" aria-label="Regents' and Chancellor's Scholars major distribution chart" className="h-auto w-full overflow-visible">
                 {wedges.map((wedge, index) => (
                   <path
                     key={wedge.label}
                     d={wedgePath(wedge.start, wedge.end, wedge.radius)}
                     fill={wedge.color}
-                    stroke="hsl(220 9% 10%)"
+                    stroke="hsl(218 31% 21%)"
                     strokeWidth="3"
                     className="major-slice"
                     style={{ transitionDelay: `${index * 70}ms` }}
@@ -160,7 +179,7 @@ const About = () => {
         <section className="px-6 py-20 md:py-28">
           <div className="container mx-auto max-w-6xl">
             <div data-scroll-reveal className="text-center">
-              <p className="text-eyebrow text-[hsl(var(--gold))]">Our members</p>
+              <p className="text-eyebrow text-[hsl(var(--gold))]">Our leadership</p>
               <h2 className="mt-4 font-display text-4xl md:text-6xl">The people behind the work.</h2>
             </div>
             <div className="mt-14 grid gap-7 sm:grid-cols-2 lg:grid-cols-3">
@@ -180,28 +199,30 @@ const About = () => {
           </div>
         </section>
 
-        <section className="px-6 pb-24 pt-16 md:pb-32 md:pt-20">
-          <div data-scroll-reveal className="cream-paper container mx-auto max-w-6xl rounded-2xl px-8 py-14 text-[hsl(var(--brown))] shadow-[0_24px_65px_hsl(220_12%_3%/0.42)] md:px-14 md:py-16">
+        <section className="overflow-hidden px-6 pb-24 pt-16 md:pb-32 md:pt-20">
+          <div className="cream-panel-field placements-panel-field mx-auto max-w-6xl">
+          <div data-scroll-reveal className="cream-paper px-8 py-14 text-[hsl(var(--brown))] shadow-[0_24px_65px_hsl(220_12%_3%/0.42)] md:px-14 md:py-16">
             <div className="text-center">
               <p className="text-eyebrow text-[hsl(var(--gold))]">Member &amp; alumni placements</p>
               <h2 className="mx-auto mt-5 max-w-4xl font-display text-4xl leading-tight md:text-6xl">Where the RCG community goes next.</h2>
             </div>
-              <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+              <div className="mt-12 grid grid-cols-2 gap-1 sm:grid-cols-3 lg:grid-cols-5">
                 {partners.map((partner) => (
-                  <div key={partner.id} className="grid min-h-24 place-items-center rounded-md bg-[hsl(var(--brown)/0.055)] px-5 py-4">
+                  <div key={partner.id} className="grid min-h-20 place-items-center p-1">
                     {partner.logo ? (
-                      <img src={partner.logo} alt={partner.name} className="max-h-11 max-w-full object-contain" />
+                      <img src={partner.logo} alt={partner.name} className="max-h-16 w-auto max-w-full object-contain" />
                     ) : (
                       <span className="text-center text-sm font-medium">{partner.name}</span>
                     )}
                   </div>
                 ))}
                 {Array.from({ length: 6 }, (_, index) => (
-                  <div key={`future-placement-${index}`} className="grid min-h-24 place-items-center rounded-md bg-[hsl(var(--brown)/0.035)] px-5 py-4 text-center text-xs uppercase tracking-[0.14em] text-[hsl(var(--brown)/0.28)]">
+                  <div key={`future-placement-${index}`} className="grid min-h-20 place-items-center p-1 text-center text-xs uppercase tracking-[0.14em] text-[hsl(var(--brown)/0.28)]">
                     Future placement
                   </div>
                 ))}
               </div>
+          </div>
           </div>
         </section>
       </div>

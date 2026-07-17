@@ -53,35 +53,26 @@ const Index = () => {
             </svg>
             <div className={`transition-all duration-700 ${heroLogoVisible ? "translate-y-0 opacity-100" : "-translate-y-5 opacity-0"}`}>
               <div className="hero-logo-medallion mx-auto">
-                <Logo size="lg" className="hero-bold-logo h-24 text-[hsl(var(--cream))] md:h-32" />
+                <Logo size="lg" className="hero-bold-logo h-[13.5rem] text-[hsl(var(--cream))] md:h-[20rem]" />
               </div>
             </div>
           </div>
-          <h1 className="mx-auto mt-3 flex max-w-5xl flex-wrap justify-center gap-x-[0.2em] font-display text-4xl leading-tight sm:text-5xl md:text-7xl lg:text-[5.75rem]">
-            {["Stability.", "Vision.", "Direction."].map((word, index) => (
-              <span
-                key={word}
-                className="hero-written-word inline-block"
-                style={{ animationDelay: `${0.45 + index * 0.72}s` }}
-              >
-                {word}
-              </span>
-            ))}
-          </h1>
-          <p className="hero-welcome-entry mt-3 text-sm font-semibold uppercase tracking-[0.34em] sm:text-base">
-            Welcome to RCG
+          <p className="hero-welcome-entry mt-7 text-xl font-semibold uppercase tracking-[0.3em] md:text-2xl">
+            <span className="hero-typed-text">Welcome to RCG</span>
           </p>
         </div>
       </section>
 
-      <section className="relative z-20 -mt-48 px-6 pb-40 md:-mt-56 md:pb-44">
-        <div data-scroll-reveal className="flex flex-col justify-center gap-8 sm:flex-row sm:gap-5">
-          <Button asChild size="lg" className="min-h-12 min-w-44 bg-primary text-primary-foreground hover:bg-primary/90">
-            <Link to="/apply">For Students</Link>
-          </Button>
-          <Button asChild size="lg" className="min-h-12 min-w-44 bg-primary text-primary-foreground hover:bg-primary/90">
-            <Link to="/contact">For Clients</Link>
-          </Button>
+      <section className="relative z-20 -mt-52 px-6 pb-40 md:-mt-60 md:pb-44">
+        <div className="hero-actions-entry text-center text-[hsl(var(--cream))]">
+          <div className="flex flex-col justify-center gap-10 sm:flex-row sm:gap-20 lg:gap-28">
+            <Button asChild size="lg" className="min-h-12 min-w-64 rounded-none border-x-0 border-y border-[hsl(var(--cream)/0.35)] bg-transparent text-[hsl(var(--cream)/0.55)] transition-colors hover:border-[hsl(var(--cream)/0.9)] hover:bg-[hsl(var(--cream)/0.1)] hover:text-[hsl(var(--cream))] md:min-w-72">
+              <Link to="/apply">Students</Link>
+            </Button>
+            <Button asChild size="lg" className="min-h-12 min-w-64 rounded-none border-x-0 border-y border-[hsl(var(--cream)/0.35)] bg-transparent text-[hsl(var(--cream)/0.55)] transition-colors hover:border-[hsl(var(--cream)/0.9)] hover:bg-[hsl(var(--cream)/0.1)] hover:text-[hsl(var(--cream))] md:min-w-72">
+              <Link to="/contact">Clients</Link>
+            </Button>
+          </div>
         </div>
       </section>
 
@@ -91,13 +82,13 @@ const Index = () => {
             <div data-scroll-reveal className="max-w-xl md:w-[48%]">
               <p className="text-eyebrow text-[hsl(var(--gold))]">Our Mission</p>
               <h2 className="mt-5 font-display text-4xl leading-tight md:text-6xl">
-                Strengthen the Regents' community through meaningful work.
+                Turn Berkeley expertise into useful work.
               </h2>
               <p className="mt-7 text-lg leading-relaxed text-[hsl(var(--cream)/0.72)]">
-                RCG builds stronger relationships between the scholarship and outside organizations, giving scholars practical experience while making the Regents' community more valuable to current and prospective members.
+                RCG assembles cross-functional student teams around real questions from companies, nonprofits, and community organizations. Each engagement combines business judgment with the technical skills the problem requires.
               </p>
               <p className="mt-5 text-lg leading-relaxed text-[hsl(var(--cream)/0.72)]">
-                Thirty percent of partnership funds go directly to the Regents' and Chancellor's Scholarship Association to support its members and broader mission.
+                Members build practical experience through research, analysis, software, operations, product design, and business development while partners receive a focused recommendation or usable deliverable.
               </p>
               <Button asChild size="lg" className="mt-9 min-h-12 bg-primary text-primary-foreground hover:bg-primary/90">
                 <Link to="/about">Learn More <ArrowRight aria-hidden="true" /></Link>
@@ -129,7 +120,7 @@ const Index = () => {
             <div className="absolute inset-x-0 bottom-10 border-t border-[hsl(var(--cream)/0.45)]" aria-hidden="true" />
             <div className="relative mx-auto grid max-w-4xl justify-items-center gap-10 md:grid-cols-3">
               {copy.whatWeDo.pillars.map((pillar, index) => (
-              <article key={pillar.title} data-scroll-reveal style={{ transitionDelay: `${index * 120}ms` }} className="cream-paper flex min-h-[44rem] w-full max-w-[15rem] flex-col overflow-hidden rounded-sm text-[hsl(var(--brown))] shadow-[0_22px_55px_hsl(220_12%_3%/0.45)]">
+              <article key={pillar.title} data-scroll-reveal style={{ transitionDelay: `${index * 120}ms` }} className="cream-paper flex min-h-[44rem] w-full max-w-[15rem] flex-col overflow-hidden text-[hsl(var(--brown))] shadow-[0_22px_55px_hsl(220_12%_3%/0.45)]">
                 <img
                   src={pillarImages[index].src}
                   alt={pillarImages[index].alt}

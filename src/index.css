@@ -3,58 +3,60 @@
 @tailwind utilities;
 
 /* RCG — Regents' & Chancellor's Group
-   Light theme: offwhite background, navy-blue ink. */
+   Light theme: offwhite background, charcoal ink with blue feature fields. */
 
 @layer base {
   :root {
     /* Offwhite paper */
     --background: 40 42% 91%;
-    --foreground: 220 55% 14%;       /* navy ink */
+    --foreground: 220 9% 10%;        /* charcoal ink */
     --cream: 40 42% 91%;
-    --brown: 220 9% 10%;
+    --brown: 218 31% 21%;            /* blue replaces charcoal surfaces */
+    --deep-blue: 222 52% 9%;         /* dark textured page and hero fields */
     --gold: 42 31% 49%;
+    --charcoal: 220 9% 10%;
 
     --card: 40 40% 94%;
-    --card-foreground: 220 55% 14%;
+    --card-foreground: 220 9% 10%;
 
     --popover: 39 38% 98%;
-    --popover-foreground: 220 55% 14%;
+    --popover-foreground: 220 9% 10%;
 
-    /* Primary: deep navy */
-    --primary: 218 31% 21%;
+    /* Primary: charcoal replaces deep navy surfaces */
+    --primary: 220 9% 10%;
     --primary-foreground: 40 42% 91%;
 
-    /* Secondary: light navy tint */
-    --secondary: 218 18% 86%;
-    --secondary-foreground: 218 31% 21%;
+    /* Secondary: neutral charcoal tint */
+    --secondary: 220 8% 86%;
+    --secondary-foreground: 220 9% 10%;
 
     --muted: 38 25% 91%;
-    --muted-foreground: 220 20% 35%;
+    --muted-foreground: 220 7% 35%;
 
     /* Accent: restrained warm gold */
     --accent: 38 50% 88%;
-    --accent-foreground: 220 55% 17%;
+    --accent-foreground: 220 9% 10%;
 
     --destructive: 0 70% 45%;
     --destructive-foreground: 39 38% 97%;
 
-    --border: 220 20% 85%;
+    --border: 220 8% 85%;
     --input: 38 30% 90%;
-    --ring: 220 55% 25%;
+    --ring: 220 9% 10%;
 
     --radius: 0.375rem;
 
     --sidebar-background: 39 38% 96%;
-    --sidebar-foreground: 220 55% 14%;
-    --sidebar-primary: 220 55% 17%;
+    --sidebar-foreground: 220 9% 10%;
+    --sidebar-primary: 220 9% 10%;
     --sidebar-primary-foreground: 39 38% 97%;
     --sidebar-accent: 38 50% 88%;
-    --sidebar-accent-foreground: 220 55% 17%;
-    --sidebar-border: 220 20% 85%;
-    --sidebar-ring: 220 55% 25%;
+    --sidebar-accent-foreground: 220 9% 10%;
+    --sidebar-border: 220 8% 85%;
+    --sidebar-ring: 220 9% 10%;
 
-    --shadow-elegant: 0 10px 30px -12px hsl(220 55% 14% / 0.15);
-    --shadow-soft: 0 1px 2px hsl(220 55% 14% / 0.06), 0 4px 12px -4px hsl(220 55% 14% / 0.08);
+    --shadow-elegant: 0 10px 30px -12px hsl(var(--brown) / 0.15);
+    --shadow-soft: 0 1px 2px hsl(var(--brown) / 0.06), 0 4px 12px -4px hsl(var(--brown) / 0.08);
 
     --transition-smooth: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     --transition-fast: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
@@ -82,12 +84,13 @@
 
   .navy-texture {
     color: hsl(var(--primary-foreground));
-    background-color: hsl(218 31% 21%);
+    background-color: hsl(var(--deep-blue));
     background-image:
-      radial-gradient(circle at 12% 18%, hsl(214 30% 32% / .34), transparent 34%),
-      radial-gradient(circle at 82% 76%, hsl(225 28% 24% / .42), transparent 38%),
-      repeating-linear-gradient(118deg, hsl(0 0% 100% / .018) 0 1px, transparent 1px 7px),
-      linear-gradient(145deg, hsl(217 31% 23%), hsl(222 32% 15%));
+      radial-gradient(circle at 12% 18%, hsl(214 44% 24% / .42), transparent 32%),
+      radial-gradient(circle at 82% 76%, hsl(228 48% 5% / .58), transparent 40%),
+      repeating-linear-gradient(118deg, hsl(40 24% 88% / .026) 0 1px, transparent 1px 6px),
+      repeating-linear-gradient(24deg, hsl(213 45% 45% / .018) 0 1px, transparent 1px 11px),
+      linear-gradient(145deg, hsl(219 49% 13%), hsl(var(--deep-blue)));
   }
 
   .navy-texture ::selection {
@@ -102,8 +105,9 @@
     position: absolute;
     inset: 0;
     content: '';
-    background: url('/hero-brown-waves.jpeg') center / cover no-repeat;
-    filter: grayscale(1) saturate(0) brightness(.68) contrast(1.06);
+    background: hsl(var(--deep-blue)) url('/hero-brown-waves.jpeg') center / cover no-repeat;
+    background-blend-mode: luminosity;
+    filter: brightness(.68) contrast(1.06);
     -webkit-mask-image: linear-gradient(to bottom, black 0%, black 28%, transparent 86%);
     mask-image: linear-gradient(to bottom, black 0%, black 28%, transparent 86%);
   }
@@ -114,10 +118,10 @@
     content: '';
     background: linear-gradient(
       to bottom,
-      hsl(var(--brown) / .08) 0%,
-      hsl(var(--brown) / .2) 28%,
-      hsl(var(--brown) / .52) 52%,
-      hsl(var(--brown) / .38) 70%,
+      hsl(var(--deep-blue) / .18) 0%,
+      hsl(var(--deep-blue) / .36) 28%,
+      hsl(var(--deep-blue) / .7) 52%,
+      hsl(var(--deep-blue) / .54) 70%,
       transparent 100%
     );
     pointer-events: none;
@@ -127,8 +131,9 @@
     position: absolute;
     inset: 0;
     content: '';
-    background: url('/hero-about-rcsa.jpg') center / cover no-repeat;
-    filter: saturate(.62) contrast(.95) brightness(.72);
+    background: hsl(var(--deep-blue)) url('/about-charcoal-geometry.png') center / cover no-repeat;
+    background-blend-mode: luminosity;
+    filter: contrast(1.16) brightness(.64);
     -webkit-mask-image: linear-gradient(to bottom, black 0%, black 55%, transparent 92%);
     mask-image: linear-gradient(to bottom, black 0%, black 55%, transparent 92%);
   }
@@ -138,7 +143,7 @@
     position: absolute;
     inset: 0;
     content: '';
-    background: linear-gradient(to right, hsl(var(--brown) / .98) 0%, hsl(var(--brown) / .9) 34%, hsl(var(--brown) / .38) 66%, transparent 100%);
+    background: linear-gradient(to right, hsl(var(--deep-blue) / .98) 0%, hsl(var(--deep-blue) / .92) 34%, hsl(var(--deep-blue) / .5) 66%, transparent 100%);
     -webkit-mask-image: linear-gradient(to bottom, black 0%, black 62%, transparent 100%);
     mask-image: linear-gradient(to bottom, black 0%, black 62%, transparent 100%);
     pointer-events: none;
@@ -183,23 +188,24 @@
   }
 
   .home-canvas {
-    background-color: hsl(var(--brown));
+    background-color: hsl(var(--deep-blue));
     background-image:
-      radial-gradient(ellipse at 14% 8%, hsl(218 11% 23% / .3), transparent 38%),
-      radial-gradient(ellipse at 86% 72%, hsl(220 10% 3% / .42), transparent 43%),
-      repeating-linear-gradient(112deg, hsl(40 25% 84% / .012) 0 1px, transparent 1px 8px),
-      linear-gradient(145deg, hsl(220 9% 13%), hsl(220 10% 7%));
-    background-repeat: no-repeat, no-repeat, repeat, no-repeat;
-    background-size: 100% 100%, 100% 100%, auto, 100% 100%;
+      radial-gradient(ellipse at 14% 8%, hsl(214 44% 24% / .42), transparent 38%),
+      radial-gradient(ellipse at 86% 72%, hsl(228 48% 4% / .6), transparent 43%),
+      repeating-linear-gradient(112deg, hsl(40 25% 84% / .026) 0 1px, transparent 1px 7px),
+      repeating-linear-gradient(27deg, hsl(213 45% 45% / .018) 0 1px, transparent 1px 13px),
+      linear-gradient(145deg, hsl(219 49% 13%), hsl(var(--deep-blue)));
+    background-repeat: no-repeat, no-repeat, repeat, repeat, no-repeat;
+    background-size: 100% 100%, 100% 100%, auto, auto, 100% 100%;
   }
 
   .apply-canvas {
     background-color: hsl(var(--primary));
     background-image:
-      radial-gradient(ellipse at 12% 10%, hsl(210 22% 34% / .32), transparent 38%),
-      radial-gradient(ellipse at 88% 72%, hsl(225 24% 12% / .4), transparent 45%),
+      radial-gradient(ellipse at 12% 10%, hsl(220 8% 24% / .32), transparent 38%),
+      radial-gradient(ellipse at 88% 72%, hsl(220 8% 5% / .4), transparent 45%),
       repeating-linear-gradient(112deg, hsl(40 25% 84% / .012) 0 1px, transparent 1px 8px),
-      linear-gradient(145deg, hsl(217 31% 23%), hsl(222 32% 15%));
+      linear-gradient(145deg, hsl(220 9% 13%), hsl(220 10% 7%));
     background-repeat: no-repeat, no-repeat, repeat, no-repeat;
     background-size: 100% 100%, 100% 100%, auto, 100% 100%;
   }
@@ -208,8 +214,9 @@
     position: absolute;
     inset: 0;
     content: '';
-    background: url('/hero-apply-chalkboard.jpg') center / cover no-repeat;
-    filter: saturate(.55) contrast(.96) brightness(.68);
+    background: hsl(var(--deep-blue)) url('/apply-charcoal-filigree.png') center / cover no-repeat;
+    background-blend-mode: luminosity;
+    filter: contrast(1.16) brightness(.64);
     -webkit-mask-image: linear-gradient(to bottom, black 0%, black 55%, transparent 92%);
     mask-image: linear-gradient(to bottom, black 0%, black 55%, transparent 92%);
   }
@@ -218,7 +225,7 @@
     position: absolute;
     inset: 0;
     content: '';
-    background: linear-gradient(to right, hsl(var(--brown) / .98) 0%, hsl(var(--brown) / .9) 34%, hsl(var(--brown) / .38) 68%, transparent 100%);
+    background: linear-gradient(to right, hsl(var(--deep-blue) / .98) 0%, hsl(var(--deep-blue) / .92) 34%, hsl(var(--deep-blue) / .5) 68%, transparent 100%);
     -webkit-mask-image: linear-gradient(to bottom, black 0%, black 62%, transparent 100%);
     mask-image: linear-gradient(to bottom, black 0%, black 62%, transparent 100%);
     pointer-events: none;
@@ -228,8 +235,9 @@
     position: absolute;
     inset: 0;
     content: '';
-    background: url('/hero-clients-collaboration.jpg') center / cover no-repeat;
-    filter: saturate(.58) contrast(.96) brightness(.66);
+    background: hsl(var(--deep-blue)) url('/hero-clients-collaboration.jpg') center / cover no-repeat;
+    background-blend-mode: luminosity;
+    filter: contrast(.96) brightness(.66);
     -webkit-mask-image: linear-gradient(to bottom, black 0%, black 55%, transparent 92%);
     mask-image: linear-gradient(to bottom, black 0%, black 55%, transparent 92%);
   }
@@ -240,6 +248,45 @@
       radial-gradient(circle at 18% 22%, hsl(42 55% 97% / .52), transparent 34%),
       radial-gradient(circle at 82% 76%, hsl(34 28% 76% / .2), transparent 38%),
       repeating-linear-gradient(96deg, hsl(25 20% 35% / .012) 0 1px, transparent 1px 5px);
+    border-radius: 0 !important;
+  }
+
+  .cream-panel-field {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .cream-panel-field::before,
+  .cream-panel-field::after {
+    position: absolute;
+    left: -2rem;
+    right: -2rem;
+    z-index: -1;
+    height: 1px;
+    content: '';
+    background: hsl(var(--cream) / .58);
+  }
+
+  .cream-panel-field::before {
+    top: 2.75rem;
+  }
+
+  .cream-panel-field::after {
+    bottom: 2.75rem;
+  }
+
+  .placements-panel-field::before,
+  .placements-panel-field::after {
+    left: 50%;
+    right: auto;
+    z-index: 0;
+    width: 100vw;
+    transform: translateX(-50%);
+  }
+
+  .placements-panel-field > * {
+    position: relative;
+    z-index: 1;
   }
 
   .prestige-blue-panel {
@@ -272,13 +319,11 @@
       radial-gradient(ellipse 32rem 18rem at bottom left, black 0%, black 50%, transparent 78%);
     -webkit-mask-position: center;
     -webkit-mask-repeat: no-repeat;
-    -webkit-mask-size: auto;
     mask-image:
       radial-gradient(ellipse 32rem 18rem at top right, black 0%, black 50%, transparent 78%),
       radial-gradient(ellipse 32rem 18rem at bottom left, black 0%, black 50%, transparent 78%);
     mask-position: center;
     mask-repeat: no-repeat;
-    mask-size: auto;
   }
 
   .prestige-blue-surface {
@@ -333,7 +378,7 @@
 
   .hero-logo-medallion {
     position: relative;
-    width: 6.3rem;
+    width: 14.5rem;
     aspect-ratio: 1;
     border: 3px solid hsl(var(--gold) / .92);
     border-radius: 9999px;
@@ -343,7 +388,7 @@
   }
 
   @media (min-width: 768px) {
-    .hero-logo-medallion { width: 8.35rem; }
+    .hero-logo-medallion { width: 21rem; }
   }
 
   .hero-written-word {
@@ -354,7 +399,24 @@
 
   .hero-welcome-entry {
     opacity: 0;
-    animation: hero-fade 1s ease-out 2.75s forwards;
+    animation: hero-fade .01s linear .8s forwards;
+  }
+
+  .hero-typed-text {
+    display: inline-block;
+    white-space: nowrap;
+    -webkit-mask-image: linear-gradient(to right, black 0%, black 42%, transparent 58%, transparent 100%);
+    -webkit-mask-position: 100% 0;
+    -webkit-mask-size: 250% 100%;
+    mask-image: linear-gradient(to right, black 0%, black 42%, transparent 58%, transparent 100%);
+    mask-position: 100% 0;
+    mask-size: 250% 100%;
+    animation: hero-text-wipe 1.35s ease-out .8s forwards;
+  }
+
+  .hero-actions-entry {
+    opacity: 0;
+    animation: hero-fade 1s ease-out 2.3s forwards;
   }
 
   [data-scroll-reveal] {
@@ -385,12 +447,26 @@
     to { opacity: 1; }
   }
 
+  @keyframes hero-text-wipe {
+    to {
+      -webkit-mask-position: 0 0;
+      mask-position: 0 0;
+    }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .hero-logo-entry,
     .hero-written-word,
-    .hero-welcome-entry {
+    .hero-welcome-entry,
+    .hero-actions-entry {
       opacity: 1;
       clip-path: none;
+      animation: none;
+    }
+
+    .hero-typed-text {
+      -webkit-mask-image: none;
+      mask-image: none;
       animation: none;
     }
 
