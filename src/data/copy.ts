@@ -1,3 +1,12 @@
+import aanyaPhoto from "@/assets/members/aanya-chakraborty.jpg";
+import andrewPhoto from "@/assets/members/andrew-shia.jpg";
+import delbertPhoto from "@/assets/members/delbert-tran.jpg";
+import devinPhoto from "@/assets/members/devin-cheng.jpg";
+import khushiPhoto from "@/assets/members/khushi-kolte.jpg";
+import markPhoto from "@/assets/members/mark-lin.jpg";
+import vincentPhoto from "@/assets/members/vincent-tran.jpg";
+import williamPhoto from "@/assets/members/william-li.jpg";
+
 /**
  * SINGLE SOURCE OF TRUTH FOR ALL WEBSITE TEXT.
  *
@@ -341,64 +350,91 @@ export type Member = {
   year?: string;
   major?: string;
   bio?: string;
+  companies?: string[];
   photo?: string;
   schedulingUrl: string;
 };
 
 export const members: Member[] = [
   {
-    id: "placeholder-1",
-    name: "First Last",
-    role: "President",
-    year: "Senior",
-    major: "Business Administration",
-    bio: "Placeholder bio. Replace with real member information.",
-    schedulingUrl: "https://calendly.com/your-link",
+    id: "mark-lin",
+    name: "Mark Lin",
+    role: "Executive Director",
+    major: "Molecular and Cellular Biology, Environmental Sciences",
+    bio: "Nice to meet you! I'm Mark Lin, External President of the RCSA and Executive Director of the RCG. Some of my greatest loves are, in no particular order: my algae culture, the ocean, lofi jazz (Pebble Beach by Vince Guaraldi), the gym, cooking, surfing, Korean BBQ, Singapore, and rock climbing. If you're interested in science, business, obtaining a patent, getting a science internship, or making a new friend, I'd be happy to chat!",
+    companies: ["Johnson & Johnson", "Terranova"],
+    photo: markPhoto,
+    schedulingUrl: "https://calendly.com/marklin-berkeley/rc-coffee-chat-mark-lin",
   },
   {
-    id: "placeholder-2",
-    name: "First Last",
-    role: "Vice President",
-    year: "Junior",
-    major: "Computer Science",
-    bio: "Placeholder bio. Replace with real member information.",
-    schedulingUrl: "https://calendly.com/your-link",
+    id: "khushi-kolte",
+    name: "Khushi Kolte",
+    role: "Financial Director",
+    major: "Cognitive Science, Data Science",
+    bio: "Hi, I'm Khushi. I am a sophomore studying Cognitive Science and Data Science, and I'm the Internal VP for RCSA and the Financial Director for RCG. In my free time, I love dancing, painting, playing poker, hiking, binging TV shows, and trying new cafes and restaurants.",
+    companies: ["Astraqua", "Epistemy", "Golden Bear Sleep and Mood Research Clinic"],
+    photo: khushiPhoto,
+    schedulingUrl: "https://calendly.com/khushikolte/30min",
   },
   {
-    id: "placeholder-3",
-    name: "First Last",
-    role: "Director of Consulting",
-    year: "Junior",
-    major: "Economics",
-    bio: "Placeholder bio. Replace with real member information.",
-    schedulingUrl: "https://calendly.com/your-link",
+    id: "andrew-shia",
+    name: "Andrew Shia",
+    role: "Project Manager",
+    major: "Applied Mathematics, Economics",
+    bio: "Hi, I'm Andrew! I'm a Taiwanese American exploring finance, more specifically private equity and risk analysis. Besides that, I love music (K-pop, KRNB, R&B, indie, and classical), photography, sports (basketball and volleyball), speedcubing and puzzles, and being a professional napper.",
+    companies: ["Trustpoint AI", "Morgan Stanley", "Goldman Sachs"],
+    photo: andrewPhoto,
+    schedulingUrl: "https://calendly.com/andrewshia-berkeley/cc",
   },
   {
-    id: "placeholder-4",
-    name: "First Last",
-    role: "Director of Recruitment",
-    year: "Sophomore",
-    major: "Cognitive Science",
-    bio: "Placeholder bio. Replace with real member information.",
-    schedulingUrl: "https://calendly.com/your-link",
+    id: "aanya-chakraborty",
+    name: "Aanya Chakraborty",
+    role: "Project Manager",
+    major: "Public Health, Data Science, Neuroscience",
+    bio: "Hi! I'm Aanya. Feel free to talk to me about your personal or professional interests—or ask me about mine, which include AI/ML for drug discovery and world literature. Or feel free to ask about Berkeley! Whatever floats your boat.",
+    companies: ["Kaiser Permanente", "Stanford School of Medicine", "Lawrence Berkeley National Laboratory"],
+    photo: aanyaPhoto,
+    schedulingUrl: "https://calendly.com/aanyachakraborty-berkeley/coffee-chat-with-aanya",
   },
   {
-    id: "placeholder-5",
-    name: "First Last",
-    role: "Consultant",
-    year: "Sophomore",
-    major: "Industrial Engineering",
-    bio: "Placeholder bio. Replace with real member information.",
-    schedulingUrl: "https://calendly.com/your-link",
+    id: "vincent-tran",
+    name: "Vincent Tran",
+    role: "Project Manager",
+    major: "EECS",
+    bio: "Hi, my name is Vincent Tran, a rising sophomore studying EECS. I like operating systems and low-level programming (ask me about CS 162). I am a boba enjoyer, ex-Diamond in Valorant, ex-Platinum in USACO, and ex-jobless. AMA.",
+    companies: ["Broadcom"],
+    photo: vincentPhoto,
+    schedulingUrl: "https://calendly.com/vincent-samuel-tran-berkeley/vt-fa26-coffee-chat",
   },
   {
-    id: "placeholder-6",
-    name: "First Last",
-    role: "Consultant",
-    year: "Junior",
-    major: "Political Economy",
-    bio: "Placeholder bio. Replace with real member information.",
-    schedulingUrl: "https://calendly.com/your-link",
+    id: "william-li",
+    name: "William Li",
+    role: "Project Manager",
+    major: "Engineering Mathematics and Statistics, EECS",
+    bio: "Hi everyone! I'm William, a sophomore studying EECS, math, and statistics. In my free time I enjoy eating and playing Roblox. I also do software engineering and ML, I guess.",
+    companies: ["Amazon"],
+    photo: williamPhoto,
+    schedulingUrl: "https://cal.com/william-li/coffee-chats",
+  },
+  {
+    id: "delbert-tran",
+    name: "Delbert Tran",
+    role: "Project Manager",
+    major: "EECS",
+    bio: "Hi, I'm Delbert, a rising sophomore who's interested in startups, venture, and growth. For fun, I'm into rock climbing, martial arts, piano, guitar, and Valorant. Hit me up if you're in the San Francisco or Berkeley area, or just want to chat online about life.",
+    companies: ["Mercor", "Google", "Oracle", "Western Digital"],
+    photo: delbertPhoto,
+    schedulingUrl: "https://calendly.com/delberttran-berkeley/new-meeting",
+  },
+  {
+    id: "devin-cheng",
+    name: "Devin Cheng",
+    role: "Project Manager",
+    major: "EECS",
+    bio: "Hey, what's up? I'm Devin, a rising sophomore interested in ML research and startups. Chat with me if you like tech, ML, swimming, eating, R&B and chill music, AI larp, the outdoors, or computers. Hit me up to chat about anything interesting!",
+    companies: ["Amazon", "Cisco", "NVIDIA"],
+    photo: devinPhoto,
+    schedulingUrl: "https://calendly.com/devin-cheng-berkeley/30min",
   },
 ];
 
@@ -406,31 +442,11 @@ export type Leader = {
   id: string;
   name: string;
   role: string;
-  description: string;
   photo?: string;
 };
 
-/** Add headshot paths and replace the placeholder details as leadership is confirmed. */
-export const leadership: Leader[] = [
-  {
-    id: "executive-director",
-    name: "Executive Director",
-    role: "Executive Team",
-    description: "Leads the organization, oversees partner relationships, and keeps RCG's work aligned with the scholars community.",
-  },
-  {
-    id: "financial-director",
-    name: "Financial Director",
-    role: "Executive Team",
-    description: "Manages finances, sponsorship operations, and the resources that support project teams and scholar programming.",
-  },
-  {
-    id: "project-manager",
-    name: "Project Managers",
-    role: "Project Leadership",
-    description: "Source opportunities, shape project scopes, and guide cross-functional teams from kickoff through final delivery.",
-  },
-];
+/** Leadership mirrors the roster so future additions only require one data entry. */
+export const leadership: Leader[] = members.map(({ id, name, role, photo }) => ({ id, name, role, photo }));
 
 /**
  * Company pipeline. Drop logo files into `public/partners/`,
@@ -455,4 +471,11 @@ export const partners: Partner[] = [
   { id: "jpmorgan", name: "J.P. Morgan", logo: "/partners/jpmorgan.svg" },
   { id: "cisco", name: "Cisco", logo: "/partners/cisco.svg" },
   { id: "google", name: "Google", logo: "/partners/google.svg" },
+  { id: "morgan-stanley", name: "Morgan Stanley", logo: "/partners/morgan-stanley.svg" },
+  { id: "goldman-sachs", name: "Goldman Sachs", logo: "/partners/goldman-sachs.svg" },
+  { id: "kaiser-permanente", name: "Kaiser Permanente", logo: "/partners/kaiser-permanente.svg" },
+  { id: "stanford-school-of-medicine", name: "Stanford School of Medicine", logo: "/partners/stanford-school-of-medicine.svg" },
+  { id: "lawrence-berkeley-national-lab", name: "Lawrence Berkeley National Laboratory", logo: "/partners/lawrence-berkeley-national-lab.svg" },
+  { id: "western-digital", name: "Western Digital", logo: "/partners/western-digital.svg" },
+  { id: "nvidia", name: "NVIDIA", logo: "/partners/nvidia.svg" },
 ];

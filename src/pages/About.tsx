@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import PageLayout from "@/components/PageLayout";
 import Logo from "@/components/Logo";
-import { copy, partners } from "@/data/copy";
+import { copy, leadership, partners } from "@/data/copy";
 
 const scholarStats = [
   { value: "0.1%", label: "Approximate scholarship acceptance rate" },
@@ -43,12 +43,6 @@ const wedgePath = (start: number, end: number, radius: number) => {
   const largeArc = end - start > 180 ? 1 : 0;
   return `M 200 200 L ${startPoint.x} ${startPoint.y} A ${radius} ${radius} 0 ${largeArc} 0 ${endPoint.x} ${endPoint.y} Z`;
 };
-
-const memberCards = [
-  "Executive Director", "Financial Director", "Project Manager",
-  "Project Manager", "Senior Consultant", "Senior Consultant",
-  "Consultant", "Consultant", "Consultant",
-];
 
 const CreamRule = () => (
   <div className="container mx-auto max-w-6xl px-6" aria-hidden="true">
@@ -182,16 +176,19 @@ const About = () => {
               <p className="text-eyebrow text-[hsl(var(--gold))]">Our leadership</p>
               <h2 className="mt-4 font-display text-4xl md:text-6xl">The people behind the work.</h2>
             </div>
-            <div className="mt-14 grid gap-7 sm:grid-cols-2 lg:grid-cols-3">
-              {memberCards.map((role, index) => (
-                <article key={`${role}-${index}`} data-scroll-reveal style={{ transitionDelay: `${(index % 3) * 90}ms` }} className="overflow-hidden rounded-xl bg-primary shadow-[0_18px_45px_hsl(220_12%_3%/0.4)]">
-                  <div className="grid aspect-[4/3] place-items-center bg-primary-foreground/10 text-primary-foreground/20">
-                    <Logo size="lg" className="h-24" />
+            <div className="mt-14 flex flex-wrap justify-center gap-7">
+              {leadership.map((member, index) => (
+                <article key={member.id} data-scroll-reveal style={{ transitionDelay: `${(index % 3) * 90}ms` }} className="w-full overflow-hidden rounded-xl bg-primary shadow-[0_18px_45px_hsl(220_12%_3%/0.4)] sm:w-[calc(50%-0.875rem)] lg:w-[calc(33.333%-1.167rem)]">
+                  <div className="aspect-[3/4] overflow-hidden bg-primary-foreground/10">
+                    {member.photo ? (
+                      <img src={member.photo} alt={member.name} className="h-full w-full object-cover object-center" />
+                    ) : (
+                      <div className="grid h-full place-items-center text-primary-foreground/20"><Logo size="lg" className="h-24" /></div>
+                    )}
                   </div>
                   <div className="p-7">
-                    <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[hsl(var(--gold))]">{role}</p>
-                    <h3 className="mt-3 font-display text-2xl">Member Name</h3>
-                    <p className="mt-3 text-sm leading-relaxed text-primary-foreground/58">Add a portrait and a short introduction for this member.</p>
+                    <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[hsl(var(--gold))]">{member.role}</p>
+                    <h3 className="mt-3 font-display text-2xl">{member.name}</h3>
                   </div>
                 </article>
               ))}
@@ -206,19 +203,14 @@ const About = () => {
               <p className="text-eyebrow text-[hsl(var(--gold))]">Member &amp; alumni placements</p>
               <h2 className="mx-auto mt-5 max-w-4xl font-display text-4xl leading-tight md:text-6xl">Where the RCG community goes next.</h2>
             </div>
-              <div className="mt-12 grid grid-cols-2 gap-1 sm:grid-cols-3 lg:grid-cols-5">
+              <div className="mt-12 flex flex-wrap justify-center gap-1">
                 {partners.map((partner) => (
-                  <div key={partner.id} className="grid min-h-20 place-items-center p-1">
+                  <div key={partner.id} className="grid min-h-20 w-[calc(50%-0.125rem)] place-items-center p-1 sm:w-[calc(33.333%-0.167rem)] lg:w-[calc(20%-0.2rem)]">
                     {partner.logo ? (
                       <img src={partner.logo} alt={partner.name} className="max-h-16 w-auto max-w-full object-contain" />
                     ) : (
                       <span className="text-center text-sm font-medium">{partner.name}</span>
                     )}
-                  </div>
-                ))}
-                {Array.from({ length: 6 }, (_, index) => (
-                  <div key={`future-placement-${index}`} className="grid min-h-20 place-items-center p-1 text-center text-xs uppercase tracking-[0.14em] text-[hsl(var(--brown)/0.28)]">
-                    Future placement
                   </div>
                 ))}
               </div>

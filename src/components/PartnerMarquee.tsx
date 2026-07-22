@@ -1,7 +1,7 @@
 import { partners, type Partner, copy } from "@/data/copy";
 
 /** Repeat count so one marquee half is wider than any viewport. */
-const REPEATS_PER_HALF = 4;
+const REPEATS_PER_HALF = 1;
 
 const halfTrack = Array.from({ length: REPEATS_PER_HALF }, () => partners).flat();
 
@@ -21,7 +21,7 @@ const PartnerLogo = ({
     />
   ) : (
     <div className="text-center">
-      <div className="whitespace-nowrap px-4 py-3 font-display text-xl font-medium text-[hsl(var(--brown)/0.75)]">
+      <div className="px-4 py-3 text-center font-display text-xl font-medium leading-tight text-[hsl(var(--brown)/0.75)]">
         {partner.name}
       </div>
     </div>

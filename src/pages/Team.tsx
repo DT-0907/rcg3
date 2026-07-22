@@ -1,15 +1,7 @@
 import { useEffect } from "react";
 import { Calendar } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
-import Logo from "@/components/Logo";
 import { members } from "@/data/copy";
-
-const coffeeMembers = [
-  ...members,
-  { id: "placeholder-7", name: "First Last", role: "Project Manager", year: "Junior", major: "Data Science", schedulingUrl: "https://calendly.com/your-link" },
-  { id: "placeholder-8", name: "First Last", role: "Consultant", year: "Sophomore", major: "Political Science", schedulingUrl: "https://calendly.com/your-link" },
-  { id: "placeholder-9", name: "First Last", role: "Consultant", year: "Junior", major: "Mechanical Engineering", schedulingUrl: "https://calendly.com/your-link" },
-];
 
 const Team = () => {
   useEffect(() => {
@@ -35,18 +27,24 @@ const Team = () => {
             <h1 className="mt-4 font-display text-5xl md:text-7xl">Talk with someone in RCG.</h1>
             <p className="mx-auto mt-5 max-w-2xl text-[hsl(var(--cream)/0.62)]">Ask about recruitment, project work, or the Regents' scholar community, then reserve a time directly through Calendly.</p>
           </div>
-          <div className="mt-14 grid gap-7 sm:grid-cols-2 lg:grid-cols-3">
-            {coffeeMembers.map((member, index) => (
-              <article key={member.id} data-scroll-reveal style={{ transitionDelay: `${(index % 3) * 90}ms` }} className="flex overflow-hidden rounded-xl bg-primary shadow-[0_18px_45px_hsl(220_30%_4%/0.35)]">
-                <div className="grid w-28 shrink-0 place-items-center bg-[hsl(var(--cream)/0.06)] text-[hsl(var(--cream)/0.18)]">
-                  <Logo size="lg" className="h-16" />
+          <div className="mt-14 flex flex-wrap justify-center gap-7">
+            {members.map((member, index) => (
+              <article key={member.id} data-scroll-reveal style={{ transitionDelay: `${(index % 3) * 90}ms` }} className="flex w-full flex-col overflow-hidden rounded-xl bg-primary shadow-[0_18px_45px_hsl(220_30%_4%/0.35)] sm:w-[calc(50%-0.875rem)] lg:w-[calc(33.333%-1.167rem)]">
+                <div className="aspect-[3/4] overflow-hidden bg-[hsl(var(--cream)/0.06)]">
+                  {member.photo && <img src={member.photo} alt={member.name} className="h-full w-full object-cover object-center" />}
                 </div>
                 <div className="flex min-w-0 flex-1 flex-col p-6">
                   <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[hsl(var(--gold))]">{member.role}</p>
                   <h2 className="mt-2 font-display text-2xl">{member.name}</h2>
-                  <p className="mt-2 text-sm text-[hsl(var(--cream)/0.5)]">{[member.year, member.major].filter(Boolean).join(" · ")}</p>
-                  <a href={member.schedulingUrl} target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[hsl(var(--cream))] hover:text-[hsl(var(--gold))]">
-                    <Calendar className="h-4 w-4" />Schedule on Calendly
+                  <p className="mt-2 text-sm leading-relaxed text-[hsl(var(--cream)/0.58)]">{member.major}</p>
+                  {member.bio && <p className="mt-4 text-sm leading-relaxed text-[hsl(var(--cream)/0.72)]">{member.bio}</p>}
+                  {!!member.companies?.length && (
+                    <div className="mt-5 flex flex-wrap gap-2">
+                      {member.companies.map((company) => <span key={company} className="rounded-full border border-[hsl(var(--cream)/0.14)] px-3 py-1 text-xs text-[hsl(var(--cream)/0.62)]">{company}</span>)}
+                    </div>
+                  )}
+                  <a href={member.schedulingUrl} target="_blank" rel="noopener noreferrer" className="mt-auto inline-flex items-center gap-2 pt-6 text-sm font-semibold text-[hsl(var(--cream))] hover:text-[hsl(var(--gold))]">
+                    <Calendar className="h-4 w-4" />Schedule a coffee chat
                   </a>
                 </div>
               </article>
