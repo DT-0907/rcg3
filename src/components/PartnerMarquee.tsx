@@ -42,7 +42,7 @@ const MarqueeGroup = ({ items }: { items: Partner[] }) => (
 
 const PartnerMarquee = () => {
   return (
-    <section className="px-6 py-14 md:py-18">
+    <section className="px-6 py-14 md:py-20">
       <div data-scroll-reveal className="prestige-blue-panel mx-auto max-w-7xl rounded-2xl shadow-[0_26px_70px_hsl(220_12%_3%/0.52)]">
         <div className="prestige-blue-surface cream-paper overflow-hidden rounded-2xl py-16 text-[hsl(var(--brown))]">
         <p className="mb-12 px-8 text-center font-display text-2xl md:text-4xl">

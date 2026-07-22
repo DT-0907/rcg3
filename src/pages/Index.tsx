@@ -57,7 +57,7 @@ const Index = () => {
               </div>
             </div>
           </div>
-          <p className="hero-welcome-entry mt-7 text-xl font-semibold uppercase tracking-[0.3em] md:text-2xl">
+          <p className="hero-welcome-entry mt-7 font-display text-2xl font-medium uppercase tracking-[0.2em] md:text-3xl">
             <span className="hero-typed-text">Welcome to RCG</span>
           </p>
         </div>
@@ -66,10 +66,10 @@ const Index = () => {
       <section className="relative z-20 -mt-52 px-6 pb-40 md:-mt-60 md:pb-44">
         <div className="hero-actions-entry text-center text-[hsl(var(--cream))]">
           <div className="flex flex-col justify-center gap-10 sm:flex-row sm:gap-20 lg:gap-28">
-            <Button asChild size="lg" className="min-h-12 min-w-64 rounded-none border-x-0 border-y border-[hsl(var(--cream)/0.35)] bg-transparent text-[hsl(var(--cream)/0.55)] transition-colors hover:border-[hsl(var(--cream)/0.9)] hover:bg-[hsl(var(--cream)/0.1)] hover:text-[hsl(var(--cream))] md:min-w-72">
+            <Button asChild size="lg" className="min-h-12 min-w-64 rounded-none font-display text-lg uppercase tracking-[0.18em] border-x-0 border-y border-[hsl(var(--cream)/0.5)] bg-transparent text-[hsl(var(--cream)/0.8)] transition-colors hover:border-[hsl(var(--cream)/0.9)] hover:bg-[hsl(var(--cream)/0.1)] hover:text-[hsl(var(--cream))] md:min-w-72">
               <Link to="/apply">Students</Link>
             </Button>
-            <Button asChild size="lg" className="min-h-12 min-w-64 rounded-none border-x-0 border-y border-[hsl(var(--cream)/0.35)] bg-transparent text-[hsl(var(--cream)/0.55)] transition-colors hover:border-[hsl(var(--cream)/0.9)] hover:bg-[hsl(var(--cream)/0.1)] hover:text-[hsl(var(--cream))] md:min-w-72">
+            <Button asChild size="lg" className="min-h-12 min-w-64 rounded-none font-display text-lg uppercase tracking-[0.18em] border-x-0 border-y border-[hsl(var(--cream)/0.5)] bg-transparent text-[hsl(var(--cream)/0.8)] transition-colors hover:border-[hsl(var(--cream)/0.9)] hover:bg-[hsl(var(--cream)/0.1)] hover:text-[hsl(var(--cream))] md:min-w-72">
               <Link to="/contact">Clients</Link>
             </Button>
           </div>
@@ -108,7 +108,7 @@ const Index = () => {
 
       <PartnerMarquee />
 
-      <section className="px-6 py-18 text-[hsl(var(--cream))] md:py-24">
+      <section className="px-6 py-16 text-[hsl(var(--cream))] md:py-24">
         <div className="container mx-auto">
           <div data-scroll-reveal className="text-center">
             <p className="text-eyebrow text-[hsl(var(--gold))]">What guides us</p>
@@ -118,13 +118,13 @@ const Index = () => {
           <div className="relative mt-14">
             <div className="absolute inset-x-0 top-10 border-t border-[hsl(var(--cream)/0.45)]" aria-hidden="true" />
             <div className="absolute inset-x-0 bottom-10 border-t border-[hsl(var(--cream)/0.45)]" aria-hidden="true" />
-            <div className="relative mx-auto grid max-w-4xl justify-items-center gap-10 md:grid-cols-3">
+            <div className="relative mx-auto grid max-w-5xl justify-items-center gap-8 md:grid-cols-3">
               {copy.whatWeDo.pillars.map((pillar, index) => (
-              <article key={pillar.title} data-scroll-reveal style={{ transitionDelay: `${index * 120}ms` }} className="cream-paper flex min-h-[44rem] w-full max-w-[15rem] flex-col overflow-hidden text-[hsl(var(--brown))] shadow-[0_22px_55px_hsl(220_12%_3%/0.45)]">
+              <article key={pillar.title} data-scroll-reveal style={{ transitionDelay: `${index * 120}ms` }} className="cream-paper flex min-h-[31rem] w-full flex-col overflow-hidden text-[hsl(var(--brown))] shadow-[0_22px_55px_hsl(220_12%_3%/0.45)]">
                 <img
                   src={pillarImages[index].src}
                   alt={pillarImages[index].alt}
-                  className="h-[40%] min-h-64 w-full object-cover"
+                  className="h-60 w-full object-cover"
                 />
                 <div className="flex flex-1 flex-col p-7">
                   <p className="text-xs font-semibold tracking-[0.22em] text-[hsl(var(--gold))]">0{index + 1}</p>
@@ -138,7 +138,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="px-6 py-18 md:py-24">
+      <section className="px-6 py-16 md:py-24">
         <div className="container mx-auto">
           <div data-scroll-reveal className="prestige-blue-panel mx-auto max-w-6xl rounded-2xl shadow-[0_28px_70px_hsl(220_55%_14%/0.28)]">
           <div className="prestige-blue-surface grid overflow-hidden rounded-2xl bg-primary text-primary-foreground md:grid-cols-[1.25fr_.75fr]">

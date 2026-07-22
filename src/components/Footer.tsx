@@ -8,7 +8,7 @@ const Footer = () => {
 
   return (
     <footer className="cream-paper text-[hsl(var(--brown))]">
-      <div className="container mx-auto px-6 py-14 md:py-18">
+      <div className="container mx-auto px-6 py-14 md:py-20">
         <div className="grid gap-12 md:grid-cols-4">
           <div className="md:col-span-2">
             <div className="flex items-center gap-3 md:gap-4">
