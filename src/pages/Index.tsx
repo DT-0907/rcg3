@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, Quote } from "lucide-react";
+import { ArrowRight, ChevronDown, Quote } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 import PartnerMarquee from "@/components/PartnerMarquee";
 import { Button } from "@/components/ui/button";
 import { copy } from "@/data/copy";
-import Logo from "@/components/Logo";
 
 const pillarImages = [
   { src: "/pillar-stability.jpg", alt: "Historic South Hall at UC Berkeley" },
@@ -14,14 +13,23 @@ const pillarImages = [
 ];
 
 const Index = () => {
-  const [heroLogoVisible, setHeroLogoVisible] = useState(true);
+  const [actionsVisible, setActionsVisible] = useState(false);
 
   useEffect(() => {
-    const updateLogo = () => setHeroLogoVisible(window.scrollY <= 48);
-    updateLogo();
-    window.addEventListener("scroll", updateLogo, { passive: true });
-    return () => window.removeEventListener("scroll", updateLogo);
+    const update = () => setActionsVisible(window.scrollY > 64);
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    return () => window.removeEventListener("scroll", update);
   }, []);
+
+  /* Honour the OS motion setting: `smooth` here would override it. */
+  const scrollToContent = () => {
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    window.scrollTo({
+      top: window.innerHeight * 0.86,
+      behavior: reduced ? "auto" : "smooth",
+    });
+  };
 
   useEffect(() => {
     const elements = Array.from(document.querySelectorAll<HTMLElement>("[data-scroll-reveal]"));
@@ -43,28 +51,43 @@ const Index = () => {
   return (
     <PageLayout>
       <div className="home-canvas">
-      <section className="hero-brown-image relative grid min-h-[105svh] place-items-center overflow-hidden px-6 text-center">
-        <div className="relative z-10 -translate-y-20 text-[hsl(var(--cream))] md:-translate-y-28">
-          <div className="hero-logo-entry">
-            <svg className="absolute h-0 w-0" aria-hidden="true">
-              <filter id="hero-logo-bold" x="-12%" y="-12%" width="124%" height="124%">
-                <feMorphology in="SourceGraphic" operator="dilate" radius="1.6" />
-              </filter>
-            </svg>
-            <div className={`transition-all duration-700 ${heroLogoVisible ? "translate-y-0 opacity-100" : "-translate-y-5 opacity-0"}`}>
-              <div className="hero-logo-medallion mx-auto">
-                <Logo size="lg" className="hero-bold-logo h-[13.5rem] text-[hsl(var(--cream))] md:h-[20rem]" />
-              </div>
-            </div>
-          </div>
-          <p className="hero-welcome-entry mt-7 font-display text-2xl font-medium uppercase tracking-[0.2em] md:text-3xl">
-            <span className="hero-typed-text">Welcome to RCG</span>
+      <section className="hero-team-image relative grid min-h-[92svh] place-items-center overflow-hidden px-6 text-center md:min-h-[100svh]">
+        <div className="relative z-10 text-[hsl(var(--cream))]">
+          {/*
+            .hero-typed-text is white-space: nowrap for its reveal wipe, so the
+            wordmark can never wrap. It scales with the viewport instead, sized
+            so the line always fits: ~10em wide at this tracking, against a
+            viewport that is 12.5em at 8vw.
+          */}
+          <h1 className="hero-welcome-entry font-display text-[clamp(2rem,8.4vw,6.5rem)] font-medium uppercase leading-[1.02] tracking-[0.1em] drop-shadow-[0_2px_24px_hsl(222_52%_6%/0.55)]">
+            <span className="hero-typed-text">{copy.homeHero.title}</span>
+          </h1>
+          <p className="hero-tagline-entry mx-auto mt-6 max-w-3xl text-[clamp(0.8rem,2.1vw,1rem)] font-medium uppercase leading-relaxed tracking-[0.18em] text-[hsl(var(--cream)/0.95)] drop-shadow-[0_1px_12px_hsl(222_52%_6%/0.7)] sm:tracking-[0.2em] md:mt-8">
+            {copy.homeHero.tagline}
           </p>
         </div>
+
+        <button
+          type="button"
+          onClick={scrollToContent}
+          aria-label="Scroll to page content"
+          className="hero-chevron-entry absolute bottom-8 left-1/2 z-10 flex h-11 w-11 -translate-x-1/2 items-center justify-center rounded-full text-[hsl(var(--cream))] transition-colors hover:text-[hsl(var(--gold))] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--gold))] focus-visible:ring-offset-2 focus-visible:ring-offset-transparent md:bottom-10"
+        >
+          <ChevronDown className="hero-chevron h-7 w-7" aria-hidden="true" />
+        </button>
       </section>
 
-      <section className="relative z-20 -mt-52 px-6 pb-40 md:-mt-60 md:pb-44">
-        <div className="hero-actions-entry text-center text-[hsl(var(--cream))]">
+      <section className="relative z-20 -mt-24 px-6 pb-40 md:-mt-28 md:pb-44">
+        {/*
+          Hidden until the visitor scrolls a little. `invisible` rather than
+          opacity alone so the links leave the tab order and the a11y tree
+          while concealed, instead of being invisible-but-focusable.
+        */}
+        <div
+          className={`text-center text-[hsl(var(--cream))] transition-all duration-700 ease-out ${
+            actionsVisible ? "visible translate-y-0 opacity-100" : "invisible translate-y-6 opacity-0"
+          }`}
+        >
           <div className="flex flex-col justify-center gap-10 sm:flex-row sm:gap-20 lg:gap-28">
             <Button asChild size="lg" className="min-h-12 min-w-64 rounded-none font-display text-lg uppercase tracking-[0.18em] border-x-0 border-y border-[hsl(var(--cream)/0.5)] bg-transparent text-[hsl(var(--cream)/0.8)] transition-colors hover:border-[hsl(var(--cream)/0.9)] hover:bg-[hsl(var(--cream)/0.1)] hover:text-[hsl(var(--cream))] md:min-w-72">
               <Link to="/apply">Students</Link>
@@ -85,10 +108,10 @@ const Index = () => {
                 Turn Berkeley expertise into useful work.
               </h2>
               <p className="mt-7 text-lg leading-relaxed text-[hsl(var(--cream)/0.72)]">
-                RCG assembles cross-functional student teams around real questions from companies, nonprofits, and community organizations. Each engagement combines business judgment with the technical skills the problem requires.
+                We build student teams around questions companies, nonprofits, and community organizations are actually trying to answer. Every project needs business judgment and real technical work, so we staff for both.
               </p>
               <p className="mt-5 text-lg leading-relaxed text-[hsl(var(--cream)/0.72)]">
-                Members build practical experience through research, analysis, software, operations, product design, and business development while partners receive a focused recommendation or usable deliverable.
+                Our members get to do the work rather than read about it. Partners get a recommendation they can act on, or something built they can use.
               </p>
               <Button asChild size="lg" className="mt-9 min-h-12 bg-primary text-primary-foreground hover:bg-primary/90">
                 <Link to="/about">Learn More <ArrowRight aria-hidden="true" /></Link>

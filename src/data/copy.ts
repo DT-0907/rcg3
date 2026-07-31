@@ -60,9 +60,19 @@ export const copy = {
     eyebrow: "UC Berkeley · Corporate Projects",
     title: "Berkeley students helping organizations answer hard questions.",
     subtitle:
-      "We are a team of Regents' and Chancellor's Scholars who take on focused consulting projects for companies, nonprofits, and community organizations. We do the research, pressure-test the options, and leave our partners with useful next steps.",
+      "We're a team of Regents' and Chancellor's Scholars who take on consulting projects for companies, nonprofits, and community organizations. We dig into the research, argue our way through what it means, and hand back something you can act on.",
     primaryCta: "Tell us what you're working on",
     secondaryCta: "Learn about RCG",
+  },
+
+  /**
+   * Landing hero: the wordmark and the tracked line under it. Keep the tagline
+   * short — it is set in uppercase with wide tracking on one or two lines, so
+   * a sentence-length string will crowd the hero.
+   */
+  homeHero: {
+    title: "Welcome to RCG",
+    tagline: "Projects & consulting from the top scholars at Berkeley",
   },
 
   partnerMarquee: {
@@ -73,19 +83,19 @@ export const copy = {
     eyebrow: "What we do",
     title: "Research that leads to a clear next move.",
     blurb:
-      "Our projects begin with a real decision on a partner's desk. Over six to ten weeks, a small student team gathers evidence, speaks with the people closest to the problem, and turns what it learns into a practical recommendation.",
+      "Every project starts with a decision someone actually has to make. A small team then spends six to ten weeks on it, reading everything we can find and talking to the people closest to the problem before we commit to a recommendation.",
     pillars: [
       {
         title: "Stability",
-        body: "Every engagement begins with a defined question, partner cadence, and final deliverable so teams know what they own from the start.",
+        body: "We settle the question, the check-in schedule, and the final deliverable before any work starts. Nobody spends the semester guessing at what they own.",
       },
       {
         title: "Vision",
-        body: "We give Berkeley scholars a place to apply academic depth to consequential work for companies, nonprofits, and community partners.",
+        body: "Scholars get to aim what they've learned in class at a problem where the answer actually matters to somebody.",
       },
       {
         title: "Direction",
-        body: "We connect Berkeley talent with corporate projects that build experience and produce practical results for partner teams.",
+        body: "Students finish with real project experience. Partners finish with work they can use.",
       },
     ],
   },
@@ -94,9 +104,9 @@ export const copy = {
     eyebrow: "Why RCG",
     title: "A small team with room to go deep.",
     points: [
-      "Our members come from the Regents' and Chancellor's Scholars community and bring perspectives from engineering, business, the sciences, and the humanities.",
-      "Alumni and experienced project leads stay close to the work, challenging assumptions and helping teams make their analysis stronger.",
-      "We set the question, cadence, and final deliverable together at the start, so partners always know what is being worked on and why.",
+      "Our members all come out of the Regents' and Chancellor's Scholars community. They study engineering, business, the sciences, the humanities.",
+      "Alumni and experienced project leads stay close to the work. They push back on a team's assumptions well before a partner ever has to.",
+      "You'll always know what we're working on and why. That gets set with you at kickoff, not explained after the fact.",
     ],
   },
 
@@ -113,9 +123,9 @@ export const copy = {
     eyebrow: "About RCG",
     title: "A place to do serious work with people who stay curious.",
     paragraphs: [
-      "RCG is a project-based organization whose members are selected through behavioral, technical, and case interviews. The process looks for people who can reason carefully, communicate clearly, and take ownership of demanding work.",
-      "Our members study within a university community of more than 35,000 undergraduates, 100 majors, and 1,200 student organizations. Project teams deliberately combine technical minds from engineering, EECS, computer science, data science, mathematics, and statistics with strategists from Haas, economics, policy, and related fields.",
-      "That mix lets teams handle engineering and data while keeping the business decision in view. Members gain practical experience while partners receive focused, cross-functional work they can carry forward.",
+      "RCG is a project-based organization. Members are selected through behavioral, technical, and case interviews, and what we're looking for is fairly simple: people who think clearly and will carry a hard piece of work all the way to the end.",
+      "Berkeley gives us more than 35,000 undergraduates, 100 majors, and 1,200 student organizations to draw from, and we use it. A typical project team pairs people out of EECS, computer science, data science, math, or statistics with people out of Haas, economics, or policy.",
+      "The reason we build teams that way is that nobody should have to choose between getting the technical work right and keeping the business question in view. One team can hold both.",
     ],
     aside: {
       basedAtLabel: "Based at",
@@ -132,7 +142,7 @@ export const copy = {
       title: "Bring us a question worth investigating.",
       forOrgs: {
         title: "For organizations",
-        body: "Tell us about the decision, research gap, or operational problem your team is facing. We'll follow up to understand the context and see whether RCG can help.",
+        body: "Tell us what your team is stuck on. We'll follow up with questions, and we'll tell you honestly if it isn't a good fit for a student team.",
         cta: "Submit an inquiry",
       },
       forStudents: {
@@ -148,32 +158,32 @@ export const copy = {
     eyebrow: "For Organizations",
     title: "One semester, one well-defined project.",
     blurb:
-      "Each engagement brings together four to six scholars from technical and business disciplines. We agree on the scope at kickoff, share a midpoint update, and close with an executive presentation and a usable final deck.",
+      "Each project runs with four to six scholars drawn from both technical and business backgrounds. We lock the scope at kickoff, check in at the midpoint, and finish with a presentation to your team plus a deck you'll keep using.",
     offerings: [
       {
         title: "Software Engineering",
-        body: "Focused builds and technical problem-solving led by scholars in computer science, data science, engineering, and related fields.",
+        body: "Builds and technical problem-solving, led by scholars in computer science, data science, and engineering.",
       },
       {
         title: "Analytics",
-        body: "Data cleaning, analysis, and clear reporting designed around the question your team needs to answer.",
+        body: "Cleaning up messy data, working through it, and reporting back in terms of the decision you're trying to make.",
       },
       {
         title: "Business Development",
-        body: "Market research, positioning, partnership strategy, and outreach planning grounded in real evidence.",
+        body: "Market research, positioning, partnership strategy, and outreach planning, with the evidence behind every call we make.",
       },
       {
         title: "Operations & Product Design",
-        body: "Process improvement and product thinking that connect user needs with the way your organization actually works.",
+        body: "Process and product work that takes seriously how your organization actually runs, not how the org chart says it runs.",
       },
     ],
     howWeWork: {
       eyebrow: "How we work",
       title: "A clear rhythm from kickoff to final presentation.",
       paragraphs: [
-        "We begin with a kickoff and scoping call to agree on the problem, the people involved, and what a useful final result should look like.",
-        "A cross-functional team of four to six scholars owns the work through the semester. Project managers guide delivery and keep communication with the partner straightforward.",
-        "A midpoint update gives both sides a chance to test the direction. The engagement ends with an executive presentation and deck your team can continue using.",
+        "We start with a kickoff call to pin down the problem, who we'll need to talk to, and what a useful answer would even look like.",
+        "A team of four to six scholars then owns the work for the semester. A project manager runs delivery and stays your single point of contact throughout.",
+        "At the midpoint we show you where things are heading. That's the moment to redirect us if it's wrong. We close with a presentation to your leadership and a deck your team can keep working from.",
       ],
       cta: "Start a conversation",
     },
@@ -183,7 +193,7 @@ export const copy = {
     eyebrow: "Coffee Chats",
     title: "Meet our members.",
     blurb:
-      "Reach out to any current member to schedule a 1:1 conversation. We'd love to learn about you and answer questions about RCG.",
+      "Reach out to any member below for a 1:1. We're happy to talk about RCG, about Berkeley, or about whatever you're still trying to figure out.",
     scheduleChatCta: "Schedule a chat",
     scheduleChatAriaLabelPrefix: "Schedule a coffee chat with",
   },
@@ -192,19 +202,19 @@ export const copy = {
     eyebrow: "Recruitment",
     title: "Join RCG.",
     blurb:
-      "We recruit at the start of each semester from UC Berkeley's Regents' and Chancellor's Scholars community. Applicants advance through written, behavioral, technical, and case-based evaluation before joining a project team.",
+      "We recruit at the start of each semester from Berkeley's Regents' and Chancellor's Scholars community. There's a written application first, then behavioral, technical, and case rounds before you join a project team.",
     applyCta: "Apply Now",
     recruitmentProcess: {
       eyebrow: "Recruitment process",
       title: "The path from interested to admitted.",
       blurb:
-        "Stages marked invite-only are extended to applicants who advance from the prior round.",
+        "Invite-only stages go to applicants who advance from the round before.",
     },
     interviewProcessSection: {
       eyebrow: "Interview process",
       title: "What to expect in interviews.",
       blurb:
-        "We design interviews to be conversational. Come curious — no prior consulting experience is required.",
+        "Our interviews are meant to feel like conversations. You don't need any consulting experience to do well in one.",
     },
     readyToApply: {
       title: "Ready to apply?",
@@ -218,7 +228,7 @@ export const copy = {
     eyebrow: "Work with RCG",
     title: "Tell us about your project.",
     blurb:
-      "Share a few details and we'll respond within a few days to set up an introductory conversation.",
+      "Share a few details and we'll get back to you within a few days to set up a first call.",
     preferEmailHeading: "Prefer email?",
   },
 
@@ -241,7 +251,7 @@ export const copy = {
         "We couldn't open your mail client. Please email us directly at",
     },
     successMessage:
-      "Thanks — your message is ready in your mail app. We'll respond within a few days.",
+      "Thanks. Your message is ready in your mail app. We'll respond within a few days.",
     submitLabel: "Send inquiry",
     submittingLabel: "Sending…",
     subjectPrefix: "RCG inquiry from",
@@ -280,13 +290,13 @@ export const recruitmentTimeline: TimelineStep[] = [
     label: "Information Sessions",
     date: "Week 1",
     description:
-      "Open to all interested students. Meet current members, learn about RCG, and ask questions.",
+      "Open to anyone. Come meet current members and ask us whatever you want to know.",
   },
   {
     label: "Coffee Chats",
     date: "Weeks 1–2",
     description:
-      "1:1 conversations with current members to get to know the group and explore fit.",
+      "A 1:1 with someone already in RCG, so you can work out whether the group is right for you.",
   },
   {
     label: "Application Due",
@@ -298,20 +308,77 @@ export const recruitmentTimeline: TimelineStep[] = [
     date: "Week 3",
     inviteOnly: true,
     description:
-      "Behavioral interview focused on motivation, experience, and collaboration.",
+      "A behavioral interview about what you've worked on and how you work with other people.",
   },
   {
     label: "Final Round Interviews",
     date: "Week 4",
     inviteOnly: true,
-    description: "Case interview and panel conversation with senior members.",
+    description: "A case interview, plus a panel conversation with senior members.",
   },
   {
     label: "Offers Extended",
     date: "End of Week 4",
-    description: "New members are welcomed into RCG.",
+    description: "We welcome the new class into RCG.",
   },
 ];
+
+/**
+ * The dated recruitment cycle shown on the Apply hero rail.
+ *
+ * `start` / `end` carry an explicit Pacific offset, so each one is an absolute
+ * instant. Comparisons against `Date.now()` are therefore correct no matter
+ * what timezone the visitor's machine is set to. August is PDT (UTC-7); if a
+ * future cycle crosses into November, use -08:00 for the dates after the flip.
+ *
+ * To roll this forward to next year, edit only this array.
+ */
+export type RecruitmentRound = {
+  id: string;
+  label: string;
+  dateLabel: string;
+  start: string;
+  end: string;
+  note?: string;
+  isFinal?: boolean;
+};
+
+export const recruitmentCycle = {
+  season: "August 2026",
+  eyebrow: "Recruitment cycle",
+  rounds: [
+    {
+      id: "R1",
+      label: "Round One",
+      dateLabel: "Aug 8–9",
+      start: "2026-08-08T00:00:00-07:00",
+      end: "2026-08-09T23:59:59-07:00",
+    },
+    {
+      id: "R2",
+      label: "Round Two",
+      dateLabel: "Aug 22",
+      start: "2026-08-22T00:00:00-07:00",
+      end: "2026-08-22T23:59:59-07:00",
+    },
+    {
+      id: "R3",
+      label: "Round Three",
+      dateLabel: "Aug 23",
+      start: "2026-08-23T00:00:00-07:00",
+      end: "2026-08-23T23:59:59-07:00",
+    },
+    {
+      id: "R4",
+      label: "Final Round",
+      dateLabel: "Aug 29–30",
+      note: "First week of school",
+      isFinal: true,
+      start: "2026-08-29T00:00:00-07:00",
+      end: "2026-08-30T23:59:59-07:00",
+    },
+  ] satisfies RecruitmentRound[],
+} as const;
 
 export const interviewProcess: TimelineStep[] = [
   {
@@ -319,21 +386,21 @@ export const interviewProcess: TimelineStep[] = [
     date: "First Round",
     inviteOnly: true,
     description:
-      "We learn about your story, motivations, and how you approach team work.",
+      "We get to know your story, what drives you, and how you tend to operate on a team.",
   },
   {
     label: "Case Round",
     date: "Final Round",
     inviteOnly: true,
     description:
-      "A structured business problem walked through together. We coach you through it — no prior consulting experience required.",
+      "A business problem we walk through together. We'll coach you as you go, and you don't need consulting experience to handle it.",
   },
   {
     label: "Panel Conversation",
     date: "Final Round",
     inviteOnly: true,
     description:
-      "A relaxed conversation with leadership to talk through fit and answer your questions.",
+      "A relaxed talk with leadership about fit, and your chance to ask us the hard questions.",
   },
 ];
 

@@ -35,6 +35,8 @@ const ContactForm = () => {
   const [errors, setErrors] = useState<Errors>({});
   const [status, setStatus] = useState<Status>("idle");
   const [errorMessage, setErrorMessage] = useState<string>("");
+  /** Honeypot: hidden from people, irresistible to bots. */
+  const [honeypot, setHoneypot] = useState("");
 
   const update = (key: keyof FormValues, value: string) => {
     setValues((v) => ({ ...v, [key]: value }));
@@ -61,29 +63,57 @@ const ContactForm = () => {
     setStatus("submitting");
     setErrorMessage("");
 
-    try {
-      // No backend in this build — open the user's mail client with a
-      // prefilled message to the configured RCG recipient.
-      const v = parsed.data;
+    const v = parsed.data;
+
+    /**
+     * Fallback for when the send endpoint is unreachable or unconfigured:
+     * hand the visitor a prefilled draft rather than losing what they wrote.
+     */
+    const openMailClient = () => {
       const subject = `${copy.contactForm.subjectPrefix} ${v.organization}`;
       const body =
         `${emailBody.namePrefix} ${v.firstName} ${v.lastName}\n` +
         `${emailBody.emailPrefix} ${v.email}\n` +
         `${emailBody.organizationPrefix} ${v.organization}\n\n` +
         `${v.message}\n`;
-      const url = `mailto:${encodeURIComponent(siteConfig.contactEmail)}?subject=${encodeURIComponent(
-        subject
+      window.location.href = `mailto:${encodeURIComponent(siteConfig.contactEmail)}?subject=${encodeURIComponent(
+        subject,
       )}&body=${encodeURIComponent(body)}`;
-      // Brief delay so the submitting state is perceptible.
-      await new Promise((r) => setTimeout(r, 250));
-      window.location.href = url;
+    };
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ ...v, website: honeypot }),
+      });
+      const data = (await res.json().catch(() => ({}))) as {
+        ok?: boolean;
+        error?: string;
+        fallback?: boolean;
+      };
+
+      if (res.ok && data.ok) {
+        setStatus("success");
+        setValues(initial);
+        return;
+      }
+
+      if (data.fallback) {
+        openMailClient();
+        setStatus("success");
+        setValues(initial);
+        return;
+      }
+
+      setStatus("error");
+      setErrorMessage(data.error || errorText.formInvalid);
+    } catch {
+      // Network failure or the endpoint is missing entirely (e.g. a static
+      // preview build). Fall back rather than dead-ending the visitor.
+      openMailClient();
       setStatus("success");
       setValues(initial);
-    } catch (err) {
-      setStatus("error");
-      setErrorMessage(
-        `${errorText.mailClientFailedPrefix} ${siteConfig.contactEmail}.`
-      );
     }
   };
 
@@ -192,6 +222,21 @@ const ContactForm = () => {
             {errors.message}
           </p>
         )}
+      </div>
+
+      {/* Off-screen rather than display:none — some bots skip hidden inputs.
+          aria-hidden and tabIndex keep it away from assistive tech and tabbing. */}
+      <div className="absolute left-[-9999px] top-auto h-px w-px overflow-hidden" aria-hidden="true">
+        <label htmlFor="website">Leave this field empty</label>
+        <input
+          id="website"
+          name="website"
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+          value={honeypot}
+          onChange={(e) => setHoneypot(e.target.value)}
+        />
       </div>
 
       <div aria-live="polite" className="min-h-[1.5rem]">

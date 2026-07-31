@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { ExternalLink, Lock } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
+import RecruitmentRail from "@/components/RecruitmentRail";
 import { Button } from "@/components/ui/button";
 import { copy, interviewProcess, recruitmentTimeline } from "@/data/copy";
 import { siteConfig } from "@/config/site";
@@ -85,15 +86,18 @@ const Apply = () => {
       <div className="home-canvas text-[hsl(var(--cream))]">
         <section className="apply-image-hero relative flex min-h-[82svh] items-center overflow-hidden px-6 py-20">
           <div className="container relative z-10 mx-auto">
-            <div className="max-w-3xl">
-              <p className="text-eyebrow text-[hsl(var(--gold))]">{copy.apply.eyebrow}</p>
-              <h1 className="mt-5 font-display text-6xl leading-[1.02] md:text-8xl">{copy.apply.title}</h1>
-              <p className="mt-7 max-w-2xl text-xl leading-relaxed text-[hsl(var(--cream)/0.76)]">{copy.apply.blurb}</p>
-              <Button asChild size="lg" className="mt-9 min-h-12 bg-primary text-primary-foreground hover:bg-primary/90">
-                <a href={siteConfig.applyFormUrl} target="_blank" rel="noopener noreferrer">
-                  {copy.apply.applyCta}<ExternalLink aria-hidden="true" />
-                </a>
-              </Button>
+            <div className="grid items-center gap-14 lg:grid-cols-[minmax(0,1fr)_22rem] lg:gap-16 xl:grid-cols-[minmax(0,1fr)_24rem]">
+              <div className="max-w-3xl">
+                <p className="text-eyebrow text-[hsl(var(--gold))]">{copy.apply.eyebrow}</p>
+                <h1 className="mt-5 font-display text-6xl leading-[1.02] md:text-8xl">{copy.apply.title}</h1>
+                <p className="mt-7 max-w-2xl text-xl leading-relaxed text-[hsl(var(--cream)/0.76)]">{copy.apply.blurb}</p>
+                <Button asChild size="lg" className="mt-9 min-h-12 bg-primary text-primary-foreground hover:bg-primary/90">
+                  <a href={siteConfig.applyFormUrl} target="_blank" rel="noopener noreferrer">
+                    {copy.apply.applyCta}<ExternalLink aria-hidden="true" />
+                  </a>
+                </Button>
+              </div>
+              <RecruitmentRail />
             </div>
           </div>
         </section>

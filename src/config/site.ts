@@ -12,7 +12,7 @@ export const siteConfig = {
   university: "University of California, Berkeley",
 
   /** Where contact-form submissions are routed (mailto). */
-  contactEmail: "____@email.com",
+  contactEmail: "contact@calrcg.org",
 
   /** External application form. */
   applyFormUrl:
