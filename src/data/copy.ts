@@ -71,7 +71,7 @@ export const copy = {
    * a sentence-length string will crowd the hero.
    */
   homeHero: {
-    title: "Welcome to RCG",
+    title: "Regents' & Chancellor's Group",
     tagline: "Projects & consulting from the top scholars at Berkeley",
   },
 

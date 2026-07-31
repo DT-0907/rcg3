@@ -110,14 +110,6 @@
 
   .hero-team-image::before {
     position: absolute;
-    /*
-     * The photo is wider-aspect than the hero, so `cover` crops horizontally
-     * and background-position-Y does nothing. To control vertical framing we
-     * instead extend this layer well below the hero and anchor the image to
-     * the top: the sky and library fill the space behind the medallion, and
-     * the group is pushed down and scaled up, clear of the type. The overflow
-     * is masked out and sits under the buttons section anyway.
-     */
     inset: 0;
     content: '';
     /*
@@ -137,13 +129,12 @@
     inset: 0;
     content: '';
     background:
-      /* Pool of shade behind the medallion so cream type stays legible. */
       /*
        * Scrim pooled behind the centred type rather than blanketing the whole
        * frame, so the photograph stays open while the tagline still clears
-       * 4.5:1 against it. The reference lays white type over a high-key photo,
-       * which reads well at wordmark scale but would fail contrast at the
-       * small tracked line, so the type here keeps a shadowed bed.
+       * 4.5:1 against it. This carries legibility on its own — the type has no
+       * shadow, since a blurred halo behind display serif is what made the
+       * hero read as a template.
        */
       radial-gradient(
         76% 44% at 50% 47%,
@@ -167,8 +158,8 @@
    * portrait viewport — `cover` has to discard ~78% of the frame's width,
    * which slices the people at both edges and drags faces under the wordmark.
    * So on small screens the photo stops being a backdrop and becomes a
-   * full-width band: the crest and wordmark sit above it on the canvas, and
-   * the whole team stays visible at close to the photo's own aspect ratio.
+   * full-width band at its own aspect ratio, with the type centred over it.
+   * The whole team stays visible rather than two of them filling the screen.
    */
   @media (max-width: 767.98px) {
     .hero-team-image::before {
@@ -178,9 +169,10 @@
       height: calc(100vw / 1.777);
       transform: translateY(-50%);
       background-position: center center;
-      /* Darker than desktop: the type sits directly over the band here, and
-         the light stone behind it otherwise drops below WCAG contrast. */
-      filter: brightness(.68) contrast(1.06) saturate(.9);
+      /* Darker than desktop, since the type sits directly over the band. Held
+         at the lightest value that still clears WCAG on the tagline, so the
+         group stays visible rather than being buried by the scrim. */
+      filter: brightness(.76) contrast(1.05) saturate(.92);
       -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 16%, black 84%, transparent 100%);
       mask-image: linear-gradient(to bottom, transparent 0%, black 16%, black 84%, transparent 100%);
     }
@@ -188,10 +180,10 @@
     .hero-team-image::after {
       background:
         radial-gradient(
-          104% 34% at 50% 50%,
-          hsl(var(--deep-blue) / .82) 0%,
-          hsl(var(--deep-blue) / .4) 64%,
-          transparent 88%
+          108% 32% at 50% 50%,
+          hsl(var(--deep-blue) / .74) 0%,
+          hsl(var(--deep-blue) / .3) 66%,
+          transparent 90%
         ),
         linear-gradient(
           to bottom,
@@ -540,7 +532,12 @@
 
   .hero-typed-text {
     display: inline-block;
-    white-space: nowrap;
+    /*
+     * Wraps. The wordmark is too long to hold one line on a phone, and the
+     * reveal works fine over a two-line box — the mask sweeps the block's
+     * full width, so both lines uncover together.
+     */
+    text-wrap: balance;
     -webkit-mask-image: linear-gradient(to right, black 0%, black 42%, transparent 58%, transparent 100%);
     -webkit-mask-position: 100% 0;
     -webkit-mask-size: 250% 100%;

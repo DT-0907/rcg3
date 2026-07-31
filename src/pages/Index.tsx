@@ -51,18 +51,19 @@ const Index = () => {
   return (
     <PageLayout>
       <div className="home-canvas">
-      <section className="hero-team-image relative grid min-h-[92svh] place-items-center overflow-hidden px-6 text-center md:min-h-[100svh]">
+      <section className="hero-team-image relative grid min-h-[84svh] place-items-center overflow-hidden px-6 text-center md:min-h-[100svh]">
         <div className="relative z-10 text-[hsl(var(--cream))]">
           {/*
-            .hero-typed-text is white-space: nowrap for its reveal wipe, so the
-            wordmark can never wrap. It scales with the viewport instead, sized
-            so the line always fits: ~10em wide at this tracking, against a
-            viewport that is 12.5em at 8vw.
+            Mixed case, no added tracking — the same way the serif is set on
+            every other page ("Join RCG.", "stay curious."). Tracked capitals
+            at display size are what made this read as a template. The base
+            h1 rule already applies the slight negative tracking Fraunces
+            wants. Contrast comes from the scrim behind, not a text shadow.
           */}
-          <h1 className="hero-welcome-entry font-display text-[clamp(2rem,8.4vw,6.5rem)] font-medium uppercase leading-[1.02] tracking-[0.1em] drop-shadow-[0_2px_24px_hsl(222_52%_6%/0.55)]">
+          <h1 className="hero-welcome-entry mx-auto max-w-5xl font-display text-[clamp(2.25rem,6vw,5.25rem)] font-normal leading-[1.06]">
             <span className="hero-typed-text">{copy.homeHero.title}</span>
           </h1>
-          <p className="hero-tagline-entry mx-auto mt-6 max-w-3xl text-[clamp(0.8rem,2.1vw,1rem)] font-medium uppercase leading-relaxed tracking-[0.18em] text-[hsl(var(--cream)/0.95)] drop-shadow-[0_1px_12px_hsl(222_52%_6%/0.7)] sm:tracking-[0.2em] md:mt-8">
+          <p className="hero-tagline-entry mx-auto mt-7 max-w-3xl text-[clamp(0.8rem,1.55vw,0.95rem)] font-medium uppercase leading-relaxed tracking-[0.18em] text-[hsl(var(--cream)/0.88)] sm:tracking-[0.2em] md:mt-9">
             {copy.homeHero.tagline}
           </p>
         </div>
