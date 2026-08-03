@@ -538,6 +538,16 @@
      * full width, so both lines uncover together.
      */
     text-wrap: balance;
+    /*
+     * mask-image clips painting to this element's box, and the tight display
+     * leading leaves Fraunces' descenders hanging outside it — the tails of
+     * "g" and "p" were being sliced flat. Extend the box downward far enough
+     * to contain them, then pull the extra height back out of the layout so
+     * nothing shifts. The mask gradient runs horizontally, so a taller box
+     * does not change the reveal.
+     */
+    padding-bottom: .24em;
+    margin-bottom: -.24em;
     -webkit-mask-image: linear-gradient(to right, black 0%, black 42%, transparent 58%, transparent 100%);
     -webkit-mask-position: 100% 0;
     -webkit-mask-size: 250% 100%;
