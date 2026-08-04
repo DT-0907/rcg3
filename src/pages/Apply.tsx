@@ -49,20 +49,19 @@ const interviewPrep = [
     ],
   },
   {
-    focus: "Fit with RCG's working style, clear goals, and thoughtful questions for leadership.",
-    prep: ["Review your earlier-round answers.", "Prepare two questions for leadership.", "Be ready to discuss time commitments honestly."],
-    questions: [
-      "Which kind of RCG project would stretch you most, and why?",
-      "How would you handle competing deadlines from a client and your coursework?",
-      "What would make your first semester in RCG successful?",
-      "What role do you naturally take on within a team?",
-      "What is one part of RCG you would want to improve over time?",
-    ],
-    resources: [
-      { label: "Berkeley mock interviews", note: "Book practice or use Berkeley's virtual interview tools.", href: "https://career.berkeley.edu/prepare-for-success/interviewing/interview-preparation/" },
-      { label: "Berkeley interview overview", note: "Prepare your own questions and review interview etiquette.", href: "https://career.berkeley.edu/prepare-for-success/interviewing/" },
-      { label: "MIT interview primer", note: "A practical guide to preparation, STAR, and reflection.", href: "https://capd.mit.edu/resources/interview-primer/" },
-    ],
+    // TODO(rcg): drop in the technical case structure and the practice-case
+    // links from Mark. Left deliberately sparse rather than filled with
+    // invented detail about how the technical round actually runs.
+    focus: "How you reason about data, break down a technical problem, and explain your approach.",
+    prep: [],
+    questions: [],
+    resources: [],
+  },
+  {
+    focus: "",
+    prep: [],
+    questions: [],
+    resources: [],
   },
 ];
 
@@ -146,16 +145,21 @@ const Apply = () => {
               <h2 className="mt-4 font-display text-4xl md:text-6xl">{copy.apply.interviewProcessSection.title}</h2>
               <p className="mx-auto mt-5 max-w-2xl text-[hsl(var(--cream)/0.62)]">{copy.apply.interviewProcessSection.blurb}</p>
             </div>
-            <div className="cream-panel-field mt-12 grid gap-7 md:grid-cols-3">
+            <div className="cream-panel-field mt-12 grid gap-7 sm:grid-cols-2 lg:grid-cols-4">
               {interviewProcess.map((step, index) => (
                 <article key={step.label} data-scroll-reveal style={{ transitionDelay: `${index * 100}ms` }} className="cream-paper flex flex-col p-8 text-[hsl(var(--brown))] shadow-[0_20px_50px_hsl(220_30%_4%/0.35)]">
                   <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[hsl(var(--gold))]">{step.date}</p>
                   <h3 className="mt-4 font-display text-3xl">{step.label}</h3>
                   <p className="mt-5 leading-relaxed text-[hsl(var(--brown)/0.66)]">{step.description}</p>
-                  <div className="mt-7 border-t border-[hsl(var(--brown)/0.16)] pt-6">
-                    <p className="text-xs font-semibold uppercase tracking-[0.15em] text-[hsl(var(--gold))]">What we assess</p>
-                    <p className="mt-3 text-sm leading-relaxed text-[hsl(var(--brown)/0.72)]">{interviewPrep[index].focus}</p>
-                  </div>
+                  {/* Each block is omitted when empty, so a round whose details
+                      are not public yet shows no bare headings. */}
+                  {interviewPrep[index].focus && (
+                    <div className="mt-7 border-t border-[hsl(var(--brown)/0.16)] pt-6">
+                      <p className="text-xs font-semibold uppercase tracking-[0.15em] text-[hsl(var(--gold))]">What we assess</p>
+                      <p className="mt-3 text-sm leading-relaxed text-[hsl(var(--brown)/0.72)]">{interviewPrep[index].focus}</p>
+                    </div>
+                  )}
+                  {!!interviewPrep[index].prep.length && (
                   <div className="mt-6">
                     <p className="text-xs font-semibold uppercase tracking-[0.15em] text-[hsl(var(--gold))]">Preparation checklist</p>
                     <ul className="mt-3 space-y-2 text-sm leading-relaxed text-[hsl(var(--brown)/0.72)]">
@@ -164,6 +168,8 @@ const Apply = () => {
                       ))}
                     </ul>
                   </div>
+                  )}
+                  {!!interviewPrep[index].questions.length && (
                   <div className="mt-6">
                     <p className="text-xs font-semibold uppercase tracking-[0.15em] text-[hsl(var(--gold))]">Example questions</p>
                     <ul className="mt-3 space-y-3 text-sm leading-relaxed text-[hsl(var(--brown)/0.72)]">
@@ -172,6 +178,8 @@ const Apply = () => {
                       ))}
                     </ul>
                   </div>
+                  )}
+                  {!!interviewPrep[index].resources.length && (
                   <div className="mt-auto pt-7">
                     <p className="text-xs font-semibold uppercase tracking-[0.15em] text-[hsl(var(--gold))]">Preparation resources</p>
                     <div className="mt-3 flex flex-col items-start gap-4">
@@ -185,6 +193,7 @@ const Apply = () => {
                       ))}
                     </div>
                   </div>
+                  )}
                 </article>
               ))}
             </div>

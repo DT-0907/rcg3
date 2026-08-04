@@ -6,7 +6,7 @@ import { siteConfig } from "@/config/site";
 
 const engagementSteps = [
   { number: "01", title: "Introductory call", timing: "Week 0", body: "We learn what decision is in front of your team, what context already exists, and what a useful outcome would look like." },
-  { number: "02", title: "Scope & staffing", timing: "Week 1", body: "RCG defines the question and deliverables, then staffs four to six scholars across technical disciplines and business, policy, or strategy." },
+  { number: "02", title: "Scope & staffing", timing: "Week 1", body: "RCG defines the question and deliverables, then staffs six to eight people: four to six consultants across technical disciplines and business, policy, or strategy, plus two project managers." },
   { number: "03", title: "Research & build", timing: "Weeks 2–6", body: "The team conducts research, analysis, interviews, or technical work while staying in regular contact with your organization." },
   { number: "04", title: "Midpoint review", timing: "Mid-semester", body: "We test early findings with your team, resolve open questions, and adjust the work before final recommendations are developed." },
   { number: "05", title: "Final delivery", timing: "Semester end", body: "Your team receives an executive presentation, final deck, and the supporting work needed to carry the recommendation forward." },
@@ -87,7 +87,7 @@ const Contact = () => {
               <div className="mt-10 grid grid-cols-2 gap-8 md:grid-cols-4">
                 {[
                   ["1 semester", "Typical engagement"],
-                  ["4–6", "Scholars per team"],
+                  ["6–8", "People per team"],
                   ["Weekly", "Partner cadence"],
                   ["3 milestones", "Kickoff, midpoint, final"],
                 ].map(([value, label]) => (

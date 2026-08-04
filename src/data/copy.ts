@@ -158,7 +158,7 @@ export const copy = {
     eyebrow: "For Organizations",
     title: "One semester, one well-defined project.",
     blurb:
-      "Each project runs with four to six scholars drawn from both technical and business backgrounds. We lock the scope at kickoff, check in at the midpoint, and finish with a presentation to your team plus a deck you'll keep using.",
+      "Each project runs with a team of six to eight: four to six consultants drawn from both technical and business backgrounds, plus two project managers. We lock the scope at kickoff, check in at the midpoint, and finish with a presentation to your team plus a deck you'll keep using.",
     offerings: [
       {
         title: "Software Engineering",
@@ -182,7 +182,7 @@ export const copy = {
       title: "A clear rhythm from kickoff to final presentation.",
       paragraphs: [
         "We start with a kickoff call to pin down the problem, who we'll need to talk to, and what a useful answer would even look like.",
-        "A team of four to six scholars then owns the work for the semester. A project manager runs delivery and stays your single point of contact throughout.",
+        "A team of six to eight then owns the work for the semester: four to six consultants, with two project managers running delivery and staying your point of contact throughout.",
         "At the midpoint we show you where things are heading. That's the moment to redirect us if it's wrong. We close with a presentation to your leadership and a deck your team can keep working from.",
       ],
       cta: "Start a conversation",
@@ -343,33 +343,38 @@ export type RecruitmentRound = {
   isFinal?: boolean;
 };
 
+/**
+ * Numbering starts at Round Two on purpose: Round One was the written
+ * application, due 2 Aug 2026, and has already closed. The dates below are
+ * unchanged — only the round numbers shifted up to account for it.
+ */
 export const recruitmentCycle = {
   season: "August 2026",
   eyebrow: "Recruitment cycle",
   rounds: [
     {
-      id: "R1",
-      label: "Round One",
+      id: "R2",
+      label: "Round Two",
       dateLabel: "Aug 8–9",
       start: "2026-08-08T00:00:00-07:00",
       end: "2026-08-09T23:59:59-07:00",
     },
     {
-      id: "R2",
-      label: "Round Two",
+      id: "R3",
+      label: "Round Three",
       dateLabel: "Aug 22",
       start: "2026-08-22T00:00:00-07:00",
       end: "2026-08-22T23:59:59-07:00",
     },
     {
-      id: "R3",
-      label: "Round Three",
+      id: "R4",
+      label: "Round Four",
       dateLabel: "Aug 23",
       start: "2026-08-23T00:00:00-07:00",
       end: "2026-08-23T23:59:59-07:00",
     },
     {
-      id: "R4",
+      id: "R5",
       label: "Final Round",
       dateLabel: "Aug 29–30",
       note: "First week of school",
@@ -380,27 +385,38 @@ export const recruitmentCycle = {
   ] satisfies RecruitmentRound[],
 } as const;
 
+/**
+ * Interview rounds shown on the Apply page. Each entry is index-matched to
+ * `interviewPrep` in src/pages/Apply.tsx — add or remove one here and you must
+ * do the same there.
+ */
 export const interviewProcess: TimelineStep[] = [
   {
     label: "Behavioral Round",
-    date: "First Round",
+    date: "Behavioral",
     inviteOnly: true,
     description:
       "We get to know your story, what drives you, and how you tend to operate on a team.",
   },
   {
-    label: "Case Round",
-    date: "Final Round",
+    label: "Business Case",
+    date: "Case round",
     inviteOnly: true,
     description:
       "A business problem we walk through together. We'll coach you as you go, and you don't need consulting experience to handle it.",
   },
   {
-    label: "Panel Conversation",
-    date: "Final Round",
+    label: "Technical Case",
+    date: "Case round",
     inviteOnly: true,
     description:
-      "A relaxed talk with leadership about fit, and your chance to ask us the hard questions.",
+      "A technical problem worked through with an interviewer, aimed at how you reason about data and build toward an answer.",
+  },
+  {
+    label: "Final Round",
+    date: "Final round",
+    inviteOnly: true,
+    description: "Details for the final round will be released later.",
   },
 ];
 
