@@ -43,19 +43,19 @@ const interviewPrep = [
       "A client has three growth options. How would you compare them?",
     ],
     resources: [
+      { label: "RCG business practice case", note: "Our own practice case and the structure we use in this round.", href: "https://docs.google.com/document/d/10KIBAVNQKCTlkI_bcJj5VoSzLjBIFa-roOZKgy6FKTE/edit?usp=sharing" },
       { label: "McKinsey practice cases", note: "Worked cases with suggested logic and answers.", href: "https://www.mckinsey.com/careers/interviewing/en" },
       { label: "Bain case preparation", note: "Practice cases focused on assumptions, math, and synthesis.", href: "https://www.bain.com/careers/interview-preparation/experience-interview.aspx" },
       { label: "BCG case preparation", note: "Interactive case quizzes and structured-thinking guidance.", href: "https://careers.bcg.com/global/en/case-interview-preparation" },
     ],
   },
   {
-    // TODO(rcg): drop in the technical case structure and the practice-case
-    // links from Mark. Left deliberately sparse rather than filled with
-    // invented detail about how the technical round actually runs.
     focus: "How you reason about data, break down a technical problem, and explain your approach.",
     prep: [],
     questions: [],
-    resources: [],
+    resources: [
+      { label: "RCG technical practice case", note: "Our own practice case and the structure we use in this round.", href: "https://docs.google.com/document/d/12-aDKO1T_Scprs7xyxNOdSPQYJe9YjqXCEbLLxTqx74/edit?usp=sharing" },
+    ],
   },
   {
     focus: "",

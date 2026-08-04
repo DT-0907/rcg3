@@ -15,8 +15,7 @@ export const siteConfig = {
   contactEmail: "contact@calrcg.org",
 
   /** External application form. */
-  applyFormUrl:
-    "https://docs.google.com/forms/d/e/1FAIpQLSe3IOl9x6mqUhWg5ROsr07HHXDsXMZHXpNdC3VJyEgYabDe7A/viewform?usp=dialog",
+  applyFormUrl: "https://forms.gle/uE1cWq5Nym4CUYm29",
 
   /** Social / external links (optional). */
   social: {
